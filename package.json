@@ -19,6 +19,6 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --out-dir docs"
+    "build": "parcel build index.html --out-dir docs --public-url '.'"
   }
 }

@@ -107,9 +107,9 @@ var t,e=arguments[3];!function(e,n){"use strict";"function"==typeof t&&t.amd?t([
 },{}],"WrJu":[function(require,module,exports) {
 
 },{}],"MOMc":[function(require,module,exports) {
-module.exports="/profile-pic.afefe935.jpg";
+module.exports="profile-pic.afefe935.jpg";
 },{}],"LZOF":[function(require,module,exports) {
-module.exports="/logo.a1d202e7.png";
+module.exports="logo.a1d202e7.png";
 },{}],"um0o":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("./profile-pic.jpg")),o=t(require("./logo.png"));function t(e){return e&&e.__esModule?e:{default:e}}var i={movie:{width:"800px",height:"450px"},movieContainer:{padding:"10px",border:"1px solid black"},logo:{width:"690px",height:"450px",backgroundRepeat:"no-repeat",backgroundImage:"url(".concat(o.default,")"),backgroundSize:"contain",backgroundPosition:"center center"},header:{width:"100%",height:"230px",display:"flex",justifyContent:"center",alignItems:"center",padding:"0 10px",position:"relative"},clickCall:{position:"absolute",fontFamily:"monospace",fontSize:"20px",transform:"translateX(-240px)",padding:"10px",borderRadius:"3px",border:"1px solid black",cursor:"pointer",outline:"none"}};exports.default=i;
 },{"./profile-pic.jpg":"MOMc","./logo.png":"LZOF"}],"IyW8":[function(require,module,exports) {
@@ -117,4 +117,4 @@ module.exports="/logo.a1d202e7.png";
 },{"react":"HdMw","./styles":"um0o"}],"H99C":[function(require,module,exports) {
 "use strict";var e=d(require("react")),r=d(require("react-dom")),t=require("react-router-dom"),u=d(require("node-waves"));require("./index.scss");var a=d(require("./home"));function d(e){return e&&e.__esModule?e:{default:e}}var l=document.getElementById("root");r.default.render(e.default.createElement(t.BrowserRouter,null,e.default.createElement(a.default,null)),l),u.default.attach(".button"),u.default.init();
 },{"react":"HdMw","react-dom":"X9zx","react-router-dom":"pvo3","node-waves":"HbX9","./index.scss":"WrJu","./home":"IyW8"}]},{},["H99C"], null)
-//# sourceMappingURL=/src.0d101e92.map
+//# sourceMappingURL=src.0d101e92.map
