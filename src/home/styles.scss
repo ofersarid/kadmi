@@ -8,21 +8,20 @@
   border: 1px solid black;
 }
 
-
 .logo {
-  width: 690px;
+  width: 470px;
   height: 170px;
   background-size: contain !important;
   background: url('logo-new.png') no-repeat center center;
 }
 
 .header {
-  width: 100%;
+  width: 822px;
+  box-sizing: border-box;
   height: 230px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  padding: 0 10px;
   position: relative;
 }
 
@@ -30,15 +29,17 @@
   position: absolute;
   font-family: monospace;
   font-size: 20px;
-  transform: translate(-290px, 50px);
+  left: 0;
   padding: 10px;
   border-radius: 3px;
   border: 1px solid black;
   cursor: pointer;
   outline: none;
   display: flex;
+  background: rgba(255, 255, 255, 0.5);
 
   svg {
     width: 24px;
+    margin-right: 10px;
   }
 }

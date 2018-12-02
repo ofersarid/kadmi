@@ -2,4 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url('wood-bg.png');
+  max-width: 1239px;
+  margin: 0 auto;
+  height: 100%;
+  overflow: auto;
+  border-left: 1px solid #d1d1d1;
+  border-right: 1px solid #d1d1d1;
 }
