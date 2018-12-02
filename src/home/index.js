@@ -17,7 +17,7 @@ const Home = () => {
       </div >
       <div className={styles.movieContainer} >
         <iframe
-          src="https://www.youtube.com/embed/4cEkV0bP-Wo?showinfo=0"
+          src="https://www.youtube.com/embed/gGvOmNaP9zU?showinfo=0"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
