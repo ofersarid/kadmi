@@ -1,12 +1,15 @@
 {
   "dependencies": {
     "assemble": "~0.3.11",
+    "classnames": "^2.2.6",
     "grunt": "~0.4.0",
     "node-waves": "^0.7.6",
     "react": ">=15",
     "react-dom": "^16.6.3",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "styled-components": "^4.1.2",
+    "styled-icons": "^5.2.2",
     "styles": "^0.2.1"
   },
   "name": "kadmi",
@@ -14,7 +17,9 @@
   "main": "src/index.js",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^9.3.1",
     "parcel-bundler": "^1.10.3",
+    "postcss-modules": "^1.4.1",
     "sass": "^1.15.1"
   },
   "scripts": {

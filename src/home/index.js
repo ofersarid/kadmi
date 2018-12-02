@@ -1,26 +1,28 @@
 import React, { Fragment } from 'react';
-import styles from './styles';
+import cx from 'classnames';
+import {AccountCircle, Lock} from 'styled-icons/material'
+import styles from './styles.scss';
 
 const Home = () => {
   return (
     <Fragment>
-      <div style={styles.header}>
+      <div className={styles.header}>
         <button
-          className="button"
-          style={styles.clickCall}
-          onClick={() => document.location.href = 'tel:9725441042'} >
-          054-477-1042
+          className={cx('button', styles.clickCall)}
+          onClick={() => document.location.href = 'tel:972509013034'} >
+          <Lock />
+          050-901-3034
         </button >
-        <div style={styles.logo}/>
+        <div className={styles.logo}/>
       </div>
-      <div style={styles.movieContainer}>
-      <iframe
-        src="https://www.youtube.com/embed/4cEkV0bP-Wo?autoplay=1&showinfo=0"
-        frameBorder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        style={styles.movie}
-      />
+      <div className={styles.movieContainer}>
+        <iframe
+          src="https://www.youtube.com/embed/4cEkV0bP-Wo?autoplay=1&showinfo=0"
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className={styles.movie}
+        />
       </div>
     </Fragment>
   )

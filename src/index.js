@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Waves from 'node-waves';
-import './index.scss';
+import styles from './index.scss';
 import Home from './home';
 
 const $root = document.getElementById('root');
+$root.className = styles.root;
 
 ReactDOM.render(
   <Router>
