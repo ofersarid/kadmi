@@ -1,6 +1,10 @@
 .movie {
   width: 800px;
   height: 450px;
+  @media (min-width: 320px) and (max-width: 480px) {
+    width: 330px;
+    height: 186px;
+  }
 }
 
 .movieContainer {
@@ -13,6 +17,9 @@
   height: 170px;
   background-size: contain !important;
   background: url('logo-new.png') no-repeat center center;
+  @media (min-width: 320px) and (max-width: 480px) {
+    width: 100%;
+  }
 }
 
 .header {
@@ -23,6 +30,11 @@
   justify-content: flex-end;
   align-items: center;
   position: relative;
+  @media (min-width: 320px) and (max-width: 480px) {
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+    display: block;
+  }
 }
 
 .clickCall {
@@ -37,9 +49,15 @@
   outline: none;
   display: flex;
   background: rgba(255, 255, 255, 0.5);
+  @media (min-width: 320px) and (max-width: 480px) {
+    position: relative;
+    width: 100%;
+    display: block;
+  }
 
   svg {
     width: 24px;
     margin-right: 10px;
   }
 }
+

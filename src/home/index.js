@@ -7,13 +7,13 @@ const Home = () => {
   return (
     <Fragment >
       <div className={styles.header} >
+        <div className={styles.logo} />
         <button
           className={cx('button', styles.clickCall)}
           onClick={() => document.location.href = 'tel:972509013034'} >
           <Phone />
           050-901-3034
         </button >
-        <div className={styles.logo} />
       </div >
       <div className={styles.movieContainer} >
         <iframe
