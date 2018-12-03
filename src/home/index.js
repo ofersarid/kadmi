@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 import cx from 'classnames';
-import { Phone } from 'styled-icons/material'
+import { Phone } from 'styled-icons/material';
 import styles from './styles.scss';
+import { device } from '../device/selectors';
 
 const Home = () => {
   return (
@@ -10,7 +12,9 @@ const Home = () => {
         <div className={styles.logo} />
         <button
           className={cx('button', styles.clickCall)}
-          onClick={() => document.location.href = 'tel:972509013034'} >
+          onClick={() => {
+            document.location.href = 'tel:972509013034';
+          }} >
           <Phone />
           050-901-3034
         </button >
@@ -25,7 +29,11 @@ const Home = () => {
         />
       </div >
     </Fragment >
-  )
+  );
 };
 
-export default Home;
+const mapStateToProps = state => ({
+  device: device(state),
+});
+
+export default connect(mapStateToProps, {})(Home);

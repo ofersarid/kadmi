@@ -4,11 +4,15 @@
     "classnames": "^2.2.6",
     "current-device": "^0.7.8",
     "grunt": "~0.4.0",
+    "immutable": "^4.0.0-rc.12",
     "node-waves": "^0.7.6",
     "react": ">=15",
     "react-dom": "^16.6.3",
+    "react-redux": "^5.1.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-immutable": "^4.0.0",
     "styled-components": "^4.1.2",
     "styled-icons": "^5.2.2",
     "styles": "^0.2.1"
@@ -19,12 +23,24 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^9.3.1",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-watch": "^4.0.2",
     "parcel-bundler": "^1.10.3",
     "postcss-modules": "^1.4.1",
+    "pre-commit": "^1.2.2",
     "sass": "^1.15.1"
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url '.' --out-dir docs"
-  }
+    "build": "parcel build index.html --public-url '.' --out-dir docs",
+    "lint": "esw src/",
+    "lint-watch": "esw src/ -w"
+  },
+  "pre-commit": [ "lint" ]
 }
