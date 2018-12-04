@@ -1,47 +1,35 @@
 .movie {
   width: 800px;
   height: 450px;
-  @media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-    width: 100%;
-    height: 186px;
-  }
-  @media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) {
-    width: calc(100% - 22px);
-    height: calc(100% - 22px);
-    position: fixed;
-    box-sizing: border-box;
-  }
+}
+
+.movie-mobile-portrait {
+  width: 100%;
+  height: 186px;
+}
+
+.movie-mobile-landscape {
+  width: calc(100% - 22px);
+  height: calc(100% - 22px);
+  position: fixed;
+  box-sizing: border-box;
 }
 
 .movieContainer {
   padding: 10px;
   border: 1px solid black;
-  @media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-    width: calc(100% - 20px);
-    box-sizing: border-box;
-  }
-@media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    box-sizing: border-box;
-  }
+}
+
+.movieContainer-mobile-portrait {
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+}
+
+.movieContainer-mobile-landscape {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -49,13 +37,10 @@
   height: 170px;
   background-size: contain !important;
   background: url('logo-new.png') no-repeat center center;
-  @media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-    width: 100%;
-  }
+}
+
+.logo-mobile {
+  width: 100%;
 }
 
 .header {
@@ -66,22 +51,16 @@
   justify-content: flex-end;
   align-items: center;
   position: relative;
-  @media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-    margin-bottom: 10px;
-    width: calc(100% - 20px);
-    display: block;
-  }
-  @media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) {
-    display: none;
-  }
+}
+
+.header-mobile-portrait {
+  margin-bottom: 10px;
+  width: calc(100% - 20px);
+  display: block;
+}
+
+.header-mobile-landscape {
+  display: none;
 }
 
 .clickCall {
@@ -96,19 +75,16 @@
   outline: none;
   display: flex;
   background: rgba(255, 255, 255, 0.5);
-  @media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-    position: relative;
-    width: 100%;
-    display: block;
-  }
 
   svg {
     width: 24px;
     margin-right: 10px;
   }
+}
+
+.clickCall-mobile {
+  position: relative;
+  width: 100%;
+  display: block;
 }
 

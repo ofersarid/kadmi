@@ -6,6 +6,7 @@
     "grunt": "~0.4.0",
     "immutable": "^4.0.0-rc.12",
     "node-waves": "^0.7.6",
+    "prop-types": "^15.6.2",
     "react": ">=15",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
@@ -42,5 +43,7 @@
     "lint": "esw src/",
     "lint-watch": "esw src/ -w"
   },
-  "pre-commit": [ "lint" ]
+  "pre-commit": [
+    "lint"
+  ]
 }
