@@ -24,6 +24,7 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^9.3.1",
+    "copyfiles": "^2.1.0",
     "eslint": "^5.9.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url '.' --out-dir docs",
+    "build": "rimraf ./docs && parcel build index.html --public-url '.' --out-dir docs && copyfiles CNAME ./docs/",
     "lint": "esw src/",
     "lint-watch": "esw src/ -w"
   },
