@@ -5,6 +5,7 @@ import { Phone } from 'styled-icons/material';
 import styles from './styles.scss';
 import { deviceType, deviceOrientation } from '../device/selectors';
 import types from './types';
+import ContactForm from './components/contact-form/contact-form';
 
 const Home = props => {
   return (
@@ -12,7 +13,7 @@ const Home = props => {
       <div className={cx(styles.header, styles[`header-${props.deviceType}-${props.deviceOrientation}`])} >
         <div className={cx(styles.logo, styles[`logo-${props.deviceType}`])} />
         <button
-          className={cx('button', styles.clickCall, styles[`clickCall-${props.deviceType}`])}
+          className={cx('ripple', styles.clickCall, styles[`clickCall-${props.deviceType}`])}
           onClick={() => {
             document.location.href = 'tel:972509013034';
           }} >
@@ -20,7 +21,8 @@ const Home = props => {
           050-901-3034
         </button >
       </div >
-      <div className={cx(styles.movieContainer, styles[`movieContainer-${props.deviceType}-${props.deviceOrientation}`])} >
+      <div
+        className={cx(styles.movieContainer, styles[`movieContainer-${props.deviceType}-${props.deviceOrientation}`])} >
         <iframe
           src="https://www.youtube.com/embed/gGvOmNaP9zU?showinfo=0"
           frameBorder="0"
@@ -29,6 +31,7 @@ const Home = props => {
           className={cx(styles.movie, styles[`movie-${props.deviceType}-${props.deviceOrientation}`])}
         />
       </div >
+      <ContactForm />
     </Fragment >
   );
 };

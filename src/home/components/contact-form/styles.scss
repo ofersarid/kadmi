@@ -1,0 +1,32 @@
+.contactForm {
+  display: flex;
+  align-items: center;
+  width: 822px;
+  margin-top: 40px;
+  box-sizing: border-box;
+  text-align: right;
+  direction: rtl;
+}
+
+.marginLeft {
+  margin-left: 10px;
+}
+
+.textInput {
+  width: 100px;
+  min-width: initial;
+}
+
+.submit {
+  height: 43px;
+  line-height: 23px;
+  font-size: 15px;
+  padding: 11px;
+  font-family: monospace;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  flex-grow: 1;
+  background: #279d6c;
+  color: white;
+}

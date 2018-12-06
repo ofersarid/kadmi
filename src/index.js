@@ -26,5 +26,5 @@ ReactDOM.render(
   $root
 );
 
-Waves.attach('.button');
+Waves.attach('.ripple');
 Waves.init();
