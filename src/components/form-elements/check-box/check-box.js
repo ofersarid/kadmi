@@ -8,19 +8,10 @@ class CheckBox extends PureComponent {
   constructor(props) {
     super(props);
     autoBind(this);
-    this.state = {
-      checked: false,
-    };
-  }
-
-  handleClick() {
-    const { checked } = this.state;
-    this.setState({ checked: !checked });
   }
 
   render() {
-    const { checked } = this.state;
-    const { children, cn } = this.props;
+    const { checked, children, cn, onChange } = this.props;
     return (
       <div
         className={cx(
@@ -28,7 +19,7 @@ class CheckBox extends PureComponent {
           styles.checkBox,
           cn,
         )}
-        onClick={this.handleClick}
+        onClick={onChange}
       >
         <div className={cx(
           styles.inner,
