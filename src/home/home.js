@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 import { Phone } from 'styled-icons/material';
+import { trackClick } from '/src/analytics';
 import styles from './styles.scss';
 import { deviceType, deviceOrientation } from '../device/selectors';
 import types from './types';
@@ -15,6 +16,7 @@ const Home = props => {
           className={cx('button', styles.clickCall, styles[`clickCall-${props.deviceType}`])}
           onClick={() => {
             document.location.href = 'tel:972509013034';
+            trackClick('User', 'clicked on call button');
           }} >
           <Phone />
           050-901-3034
