@@ -24,7 +24,7 @@ const Home = props => {
       </div >
       <div className={cx(styles.movieContainer, styles[`movieContainer-${props.deviceType}-${props.deviceOrientation}`])} >
         <iframe
-          src="https://www.youtube.com/embed/gGvOmNaP9zU?showinfo=0"
+          src="https://www.youtube.com/embed/9nufoO3sv28"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
