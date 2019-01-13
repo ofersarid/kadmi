@@ -7,7 +7,7 @@ import { TextInput, CheckBox } from '../../../components/form-elements';
 const ContactForm = () => (
   <div className={cx(styles.contactForm)} >
     <TextInput placeholder="שם" cn={`${styles.marginLeft} ${styles.textInput}`} />
-    <TextInput placeholder="דוא״ל" cn={`${styles.marginLeft} ${styles.textInput}`} />
+    <TextInput placeholder="נייד" cn={`${styles.marginLeft} ${styles.textInput}`} />
     <label className={styles.marginLeft} >מתעניין ב- </label >
     <CheckBox cn={styles.marginLeft} >
       פרגולה
