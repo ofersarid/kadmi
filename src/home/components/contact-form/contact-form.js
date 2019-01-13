@@ -74,7 +74,7 @@ class ContactForm extends PureComponent {
               });
           }}
         >
-          שלח
+          חזור אלי
         </button >
         <Toaster show={showConfirmation} type="warning" >
           קבלתי, תודה !
