@@ -1,0 +1,27 @@
+.toaster {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  color: white;
+  bottom: 0;
+  opacity: 0;
+  transition: .2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  text-shadow: -1px -1px 0 #279d6c;
+  background: rgba(#279d6c, 0.83);
+  max-width: 1239px;
+  left: calc(50% + 1px);
+  transform: translate(-50%, 100%);
+  
+  svg {
+    filter: drop-shadow(-1px -1px #43b253);
+  }
+}
+
+.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

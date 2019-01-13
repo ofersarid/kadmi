@@ -1,5 +1,6 @@
 module.exports = {
   extends: ['standard', 'plugin:react/recommended'],
+  parser: "babel-eslint",
   rules: {
     semi: ['error', 'always'],
     'comma-dangle': ['error', {
