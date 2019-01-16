@@ -17,7 +17,7 @@ const Home = props => {
           className={cx('ripple', styles.clickCall, styles[`clickCall-${props.deviceType}`])}
           onClick={() => {
             document.location.href = 'tel:972509013034';
-            trackClick('User', 'clicked on call button');
+            trackClick('user', 'click', 'call-button');
           }} >
           <Phone />
           050-901-3034

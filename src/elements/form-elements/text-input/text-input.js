@@ -9,6 +9,7 @@ const TextInput = props => (
     className={cx(styles.textInput, props.cn)}
     placeholder={props.placeholder}
     onChange={e => props.onChange(e.currentTarget.value)}
+    value={props.value}
   />
 );
 

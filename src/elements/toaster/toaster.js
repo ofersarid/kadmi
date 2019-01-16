@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 import { deviceType, deviceOrientation } from '/src/device/selectors';
@@ -6,13 +7,16 @@ import noop from 'lodash/noop';
 import types from './types';
 import styles from './styles.scss';
 
-const Toaster = props => (
+const $body = document.getElementsByTagName('body')[0];
+
+const Toaster = props => ReactDOM.createPortal(
   <div
     className={cx(props.onClick && `ripple waves-effect ${styles.button}`, styles.toaster, props.show && styles.show, styles[props.type])}
     onClick={props.onClick ? props.onClick : noop}
   >
     {props.children}
-  </div >
+  </div >,
+  $body,
 );
 
 Toaster.propTypes = types;

@@ -6,6 +6,8 @@
   box-sizing: border-box;
   text-align: right;
   direction: rtl;
+  margin-bottom: 40px;
+  flex-shrink: 0;
 }
 
 .marginLeft {
@@ -29,6 +31,13 @@
   flex-grow: 1;
   background: #279d6c;
   color: white;
+  transition: .3s;
+  
+  &[disabled] {
+    opacity: 0.5;
+    filter: grayscale(1);
+    transform: scale(0.9);
+  }
 }
 
 .mobile {
@@ -63,4 +72,10 @@
 
 .send-button-mobile {
   width: 100%;
+}
+
+.loader {
+  width: 26px;
+  transform: translateY(4px);
+  margin-right: 10px;
 }
