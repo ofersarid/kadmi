@@ -2,8 +2,8 @@ import ReactGA from 'react-ga';
 
 ReactGA.initialize('UA-132363213-1');
 
-// const PRODUCTION = window.location.hostname === 'omerkadmi.co.il';
-const PRODUCTION = true;
+const PRODUCTION = window.location.hostname === 'omerkadmi.co.il';
+// const PRODUCTION = true;
 
 export const trackPageView = () => {
   if (!PRODUCTION) return;
