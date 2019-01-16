@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { send } from 'emailjs-com';
 import styles from './styles.scss';
 import { deviceOrientation, deviceType } from '/src/device/selectors';
-import { TextInput, CheckBox } from '/src/elements/form-elements';
+import { TextInput } from '/src/elements/form-elements';
 import Toaster from '/src/elements/toaster';
 import { trackClick } from '/src/analytics';
 import types from '../../types';
@@ -16,7 +16,7 @@ class ContactForm extends PureComponent {
     this.initialState = {
       name: '',
       phone: '',
-      type: 'business', // 'business' | 'private
+      // type: 'business', // 'business' | 'private
       showConfirmation: false,
       showActivity: false,
       isValid: false,
@@ -50,10 +50,10 @@ class ContactForm extends PureComponent {
   }
 
   render() {
-    const { type, showConfirmation, name, phone, isValid, showActivity } = this.state;
-    const { deviceType } = this.props;
+    const { showConfirmation, name, phone, isValid, showActivity } = this.state;
+    const { deviceType, deviceOrientation } = this.props;
     return (
-      <div className={cx(styles.contactForm, styles[deviceType])} >
+      <div className={cx(styles.contactForm, styles[deviceType], styles[`${deviceType}-${deviceOrientation}`])} >
         <TextInput
           placeholder="שם"
           cn={cx(styles.marginLeft, styles.textInput, styles[`input-text-${deviceType}`])}
@@ -66,17 +66,17 @@ class ContactForm extends PureComponent {
           onChange={val => this.setState({ phone: val.replace(/\D/g, '') })}
           value={phone}
         />
-        <div className={cx(styles.row, styles[`row-${deviceType}`])} >
-          <label className={cx(styles.marginLeft)} >אני לקוח- </label >
-          <CheckBox
-            cn={cx(styles.marginLeft, styles[`check-box-${deviceType}`])} checked={type === 'private'}
-            onChange={() => this.setState({ type: 'private' })} >פרטי
-          </CheckBox >
-          <CheckBox
-            cn={cx(styles.marginLeft, styles[`check-box-${deviceType}`])} checked={type === 'business'}
-            onChange={() => this.setState({ type: 'business' })} >עסקי
-          </CheckBox >
-        </div >
+        {/* <div className={cx(styles.row, styles[`row-${deviceType}`])} > */}
+        {/* <label className={cx(styles.marginLeft)} >אני לקוח- </label > */}
+        {/* <CheckBox */}
+        {/* cn={cx(styles.marginLeft, styles[`check-box-${deviceType}`])} checked={type === 'private'} */}
+        {/* onChange={() => this.setState({ type: 'private' })} >פרטי */}
+        {/* </CheckBox > */}
+        {/* <CheckBox */}
+        {/* cn={cx(styles.marginLeft, styles[`check-box-${deviceType}`])} checked={type === 'business'} */}
+        {/* onChange={() => this.setState({ type: 'business' })} >עסקי */}
+        {/* </CheckBox > */}
+        {/* </div > */}
         <button
           className={cx('ripple', styles.submit, styles[`send-button-${deviceType}`])}
           disabled={!isValid}
@@ -86,7 +86,7 @@ class ContactForm extends PureComponent {
             const templateParams = {
               'name': name,
               'phone': phone,
-              'type': type === 'business' ? 'עסקי' : 'פרטי',
+              // 'type': type === 'business' ? 'עסקי' : 'פרטי',
             };
             trackClick('user', 'click', 'send-contact-form');
             send('my_gmail', 'lead-from-website', templateParams, 'user_fg2fM2XobeIW7nmIjcPKY')
@@ -100,11 +100,11 @@ class ContactForm extends PureComponent {
         >
           חזור אלי
         </button >
-        <Toaster show={showActivity} type="success" >
-          <div>שולח</div>
-          <img src={loader} className={styles.loader}/>
+        <Toaster show={showActivity} type="warning" >
+          <div >שולח</div >
+          <img src={loader} className={styles.loader} />
         </Toaster >
-        <Toaster show={showConfirmation} type="warning" >
+        <Toaster show={showConfirmation} type="success" >
           קבלתי, תודה !
         </Toaster >
       </div >

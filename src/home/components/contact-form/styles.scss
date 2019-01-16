@@ -24,7 +24,7 @@
   line-height: 23px;
   font-size: 15px;
   padding: 11px;
-  font-family: monospace;
+  //font-family: monospace;
   cursor: pointer;
   user-select: none;
   outline: none;
@@ -32,17 +32,23 @@
   background: #279d6c;
   color: white;
   transition: .3s;
+  border-radius: 3px;
   
   &[disabled] {
     opacity: 0.5;
     filter: grayscale(1);
-    transform: scale(0.9);
+    pointer-events: none;
+    cursor: default;
   }
 }
 
 .mobile {
   flex-direction: column;
   width: calc(100% - 20px);
+}
+
+.mobile-landscape {
+  display: none;
 }
 
 .row {
