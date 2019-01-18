@@ -33,6 +33,7 @@
   color: white;
   transition: .3s;
   border-radius: 3px;
+  border: 1px solid rgba(black, 0.1);
   
   &[disabled] {
     opacity: 0.5;
