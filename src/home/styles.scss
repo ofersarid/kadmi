@@ -7,7 +7,7 @@
 
 .movie-mobile-portrait {
   width: 100%;
-  height: 226px;
+  height: 186px;
   flex-shrink: 0;
 }
 
@@ -22,6 +22,7 @@
 .movieContainer {
   border-radius: 3px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .movieContainer-mobile-portrait {
