@@ -1,5 +1,5 @@
 import { send } from 'emailjs-com';
-import EMAIL_JS from 'emailJS.config';
+import EMAIL_JS from '/emailJS.config';
 
 export const createContact = (name, email, message, options) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {

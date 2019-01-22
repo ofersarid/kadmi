@@ -1,10 +1,10 @@
 const EMAIL_JS = {
-  SERVICE_ID: 'goblins-desk',
-  USER_ID: 'user_G5XidPOIQwVxbe1dVDS1Q',
+  SERVICE_ID: 'kadmi-desk',
+  USER_ID: 'user_fg2fM2XobeIW7nmIjcPKY',
   TEMPLATES: {
-    CONTACT: 'new-contact-form',
+    CONTACT: 'lead-from-website',
   },
-  DESK_NAME: 'Goblins Desk',
+  DESK_NAME: 'Kadmi Desk',
 };
 
 export default EMAIL_JS;
