@@ -89,7 +89,7 @@ class ContactForm extends PureComponent {
               // 'type': type === 'business' ? 'עסקי' : 'פרטי',
             };
             trackClick('user', 'click', 'send-contact-form');
-            send('my_gmail', 'lead-from-website', templateParams, 'user_fg2fM2XobeIW7nmIjcPKY')
+            send('kadmi-desk', 'lead-from-website', templateParams, 'user_fg2fM2XobeIW7nmIjcPKY')
               .then(response => {
                 this.setState({ showActivity: false });
                 this.showConfirmation();
