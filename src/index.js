@@ -1,31 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import Waves from 'node-waves';
-import '/src/analytics';
-import ReactGA from 'react-ga';
-import combinedReducers from './reducers';
-import styles from './index.scss';
-import Home from './home/home';
-import './device/device';
+import thunk from 'redux-thunk';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { Router, hashHistory } from 'react-router';
+import rootReducer from './cms/root-reducers';
+import styles from './styles.scss';
+import firebase from '../firebase.config';
+import Routes from '/src/routes';
 
 const $root = document.getElementById('root');
+
 $root.className = styles.root;
 
-ReactGA.pageview('home');
+// export const history = createBrowserHistory();
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
-  combinedReducers, /* preloadedState, */
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  rootReducer, /* preloadedState, */
+  composeEnhancers(
+    applyMiddleware(
+      thunk.withExtraArgument({ getFirebase, getFirestore }),
+    ),
+    reduxFirestore(firebase),
+    reactReduxFirebase(firebase, {
+      userProfile: 'users',
+      useFirestoreForProfile: true,
+    }),
+  )
 );
 
 ReactDOM.render(
   <Provider store={store} >
-    <Router >
-      <Home />
-    </Router >
+    <Router history={hashHistory} routes={Routes.routesMap} />
   </Provider >,
   $root
 );
