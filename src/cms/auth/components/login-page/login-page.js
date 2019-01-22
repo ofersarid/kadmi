@@ -8,6 +8,7 @@ import { UserInput } from '/src/cms/elements';
 import { Dialog } from '/src/cms/elements/dialog';
 import Auth from '/src/cms/auth';
 import { LogIn } from 'styled-icons/boxicons-regular/LogIn';
+import { validateEmail } from '/src/cms/utils';
 import styles from './styles.scss';
 import gobFace from './gob-face.svg';
 
@@ -68,6 +69,7 @@ class LoginPage extends PureComponent {
             placeholder="Email"
             onChange={val => this.updateState({ email: val })}
             value={email}
+            validateWith={validateEmail}
             className={cx(styles.input, styles[`input-${deviceType}`])}
             onEnterKeyPress={() => logIn(this.state).then(this.redirectAfterLogin)}
           />
@@ -76,6 +78,8 @@ class LoginPage extends PureComponent {
             onChange={val => this.updateState({ password: val })}
             value={password}
             type="password"
+            min={4}
+            max={12}
             className={cx(styles.input, styles[`input-${deviceType}`])}
             onEnterKeyPress={() => logIn(this.state).then(this.redirectAfterLogin)}
           />
