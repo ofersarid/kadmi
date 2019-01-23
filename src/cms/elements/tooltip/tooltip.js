@@ -24,7 +24,7 @@ class Tooltip extends PureComponent {
 
   initTip() {
     const { isMobile, content, position } = this.props;
-    if (!isMobile) {
+    if (!isMobile && this.ref.current) {
       tippy(this.ref.current, {
         content: `<div class="${styles.content}">${content}</div>`,
         animateFill: false,
@@ -32,6 +32,7 @@ class Tooltip extends PureComponent {
         delay: [500, 0],
         placement: position,
       });
+      this.ref.current.removeAttribute('tabindex'); // make none focusable
     }
   }
 
@@ -41,6 +42,7 @@ class Tooltip extends PureComponent {
       <div
         className={cx(className)}
         ref={this.ref}
+        tabIndex={null}
       >
         {children}
       </div >
