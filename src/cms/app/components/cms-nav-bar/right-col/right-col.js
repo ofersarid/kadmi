@@ -11,6 +11,7 @@ import styles from './styles.scss';
 
 const RightCol = props => (
   <ul className={styles.rightCol} >
+    <li className={styles.clientId}>Client-Id: omerkadmi.co.il</li>
     <li >
       <Button
         color="black-invert"
