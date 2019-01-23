@@ -2292,7 +2292,7 @@ autoprefixer@^6.3.1:
     postcss "^5.2.16"
     postcss-value-parser "^3.2.3"
 
-autoprefixer@^9.3.1:
+autoprefixer@^9.3.1, autoprefixer@^9.4.6:
   version "9.4.6"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.4.6.tgz#0ace275e33b37de16b09a5547dbfe73a98c1d446"
   dependencies:
@@ -5449,7 +5449,7 @@ findup-sync@~0.1.2:
     glob "~3.2.9"
     lodash "~2.4.1"
 
-firebase@^5.7.0:
+firebase@^5.8.0:
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-5.8.0.tgz#b9669b79cd079004eb7091440b585b322f844fb4"
   dependencies:
@@ -10509,7 +10509,7 @@ react-quill@^1.3.3:
     quill "^1.2.6"
     react-dom-factories "^1.0.0"
 
-react-redux-firebase@^2.2.5:
+react-redux-firebase@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/react-redux-firebase/-/react-redux-firebase-2.2.6.tgz#af72ff7be29c543c42139545619fbb66c564f5d1"
   dependencies:
@@ -10726,7 +10726,7 @@ react-treebeard@^3.1.0:
     shallowequal "^1.1.0"
     velocity-react "^1.4.1"
 
-"react@0.14.x || ^15.0.0 || ^16.0.0", react@^16.6.3, react@^16.7.0:
+"react@^0.14.6 || ^15.0.0-0 || ^16.0.0-0", react@^16.6.3, react@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.7.0.tgz#b674ec396b0a5715873b350446f7ea0802ab6381"
   dependencies:
@@ -10882,7 +10882,7 @@ reduce-reducers@0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.4.3.tgz#8e052618801cd8fc2714b4915adaa8937eb6d66c"
 
-redux-firestore@^0.6.0:
+redux-firestore@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/redux-firestore/-/redux-firestore-0.6.3.tgz#7032a0197f21c2287fd991e3189f4008cbe40f69"
   dependencies:
