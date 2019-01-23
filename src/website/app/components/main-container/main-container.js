@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import Device from '/src/cms/device';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import styles from './styles.scss';
 import { websiteMainContainer } from '../../types';
 import NavBar from '../nav-bar/nav-bar';
 
 const WebsiteMainContainer = props => (
-  <ParallaxProvider >
+  <Fragment >
     <Device />
     <div className={styles.mainContainer} >
       <NavBar />
       <div className={styles.stage} >{props.children}</div >
     </div >
-  </ParallaxProvider >
+  </Fragment >
 );
 
 const mapStateToProps = state => ({

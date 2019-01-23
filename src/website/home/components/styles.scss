@@ -30,6 +30,8 @@
 
 .category {
   background: #e3e3e3;
+  position: relative;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,8 +43,6 @@
 
 .category2 {
   grid-area: category-2;
-  background: url('./pergolas.jpg') -340px 0;
-  background-size: cover;
 }
 
 .category3 {
@@ -51,8 +51,6 @@
 
 .category4 {
   grid-area: category-4;
-  background: url('./outdoor.jpg') center center;
-  background-size: cover;
 }
 
 .category5 {
@@ -60,7 +58,18 @@
 }
 
 .title {
-  display: inline-block;
+  display: block;
   font-size: 30px;
   color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
 }
