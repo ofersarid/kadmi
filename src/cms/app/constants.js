@@ -1,5 +1,3 @@
-export const PAGES = ['home', 'about'];
-export const CMS_COLLECTIONS = ['events', 'team', 'contacts', 'products'];
 export const ACTIONS = {
   TOGGLE_SIDE_NAV: 'APP/TOGGLE_SIDE_NAV',
   TOGGLE_DELETE_MODE: 'ADMIN/TOGGLE_DELETE_MODE',

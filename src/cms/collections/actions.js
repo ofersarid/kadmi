@@ -1,7 +1,7 @@
-import App from '/src/cms/app';
+import App from '/src/cms/app/index';
 import uuidv4 from 'uuid/v4';
 import isEmpty from 'lodash/isEmpty';
-import Activity from '/src/cms/activity';
+import Activity from '/src/cms/activity/index';
 import { eventById } from './selectors';
 
 const deleteFile = (path, firebase) => {

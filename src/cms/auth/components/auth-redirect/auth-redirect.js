@@ -1,15 +1,19 @@
 import { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import Auth from '/src/cms/auth';
+import Auth from '/src/cms/auth/index';
 import { hashHistory } from 'react-router';
-import Routes from '/src/routes';
+import Routes from '/src/routes/index';
 import { compose } from 'redux';
-import { CMS_COLLECTIONS } from '../../constants';
+import { COLLECTIONS } from '/collections.config';
 import { firestoreConnect } from 'react-redux-firebase';
 
 class AuthRedirect extends PureComponent {
   constructor(props) {
     super(props);
+    this.collections = COLLECTIONS.reduce((list, item) => {
+      list.push(item.id);
+      return list;
+    }, []);
     this.redirect(props);
   }
 
@@ -29,7 +33,7 @@ class AuthRedirect extends PureComponent {
       (uid && pathname === '/login')) {
       this.toCMSIndex();
     } else if (uid) {
-      const pageAllowed = CMS_COLLECTIONS.includes(pathname.split('cms/').pop().split('/')[0].toLowerCase());
+      const pageAllowed = this.collections.includes(pathname.split('cms/').pop().split('/')[0].toLowerCase());
       if (!pageAllowed) {
         this.toCMSIndex();
       }
@@ -37,7 +41,7 @@ class AuthRedirect extends PureComponent {
   }
 
   toCMSIndex() {
-    const defaultCollection = CMS_COLLECTIONS[0];
+    const defaultCollection = this.collections[0];
     if (defaultCollection) {
       hashHistory.push(`cms/${defaultCollection}`);
     }

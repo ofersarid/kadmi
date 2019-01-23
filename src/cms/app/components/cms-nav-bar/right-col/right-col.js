@@ -8,10 +8,11 @@ import Auth from '/src/cms/auth';
 import { LogOut } from 'styled-icons/boxicons-regular/LogOut';
 import { hashHistory } from 'react-router';
 import styles from './styles.scss';
+import { CLIENT_ID } from '/collections.config';
 
 const RightCol = props => (
   <ul className={styles.rightCol} >
-    <li className={styles.clientId}>Client-Id: omerkadmi.co.il</li>
+    <li className={styles.clientId} >Client-Id: {CLIENT_ID}</li >
     <li >
       <Button
         color="black-invert"

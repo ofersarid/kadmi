@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import Device from '/src/cms/device';
-import Button from '/src/cms/elements/button';
-import App from '/src/cms/app';
+import Device from '/src/cms/device/index';
+import Button from '/src/cms/elements/button/index';
+import App from '/src/cms/app/index';
 import cx from 'classnames';
-import { entityItem } from './types';
+import { entityItem } from '../../types';
 import styles from './styles.scss';
 import ImageAsync from 'react-image-async';
 import Puff from '/src/cms/elements/svg-loaders/puff.svg';
@@ -15,10 +15,10 @@ import { SortDown } from 'styled-icons/boxicons-regular/SortDown';
 import { Hide } from 'styled-icons/boxicons-solid/Hide';
 import { Show } from 'styled-icons/boxicons-solid/Show';
 import { toCapitalizedWords } from '/src/cms/utils';
-import Filters from '/src/cms/filters';
-import Tooltip from '../elements/tooltip/tooltip';
+import Filters from '/src/cms/filters/index';
+import Tooltip from '/src/cms/elements/tooltip/tooltip';
 
-class CMSEntityItem extends Component {
+class Item extends Component {
   componentWillUnmount() {
     this.willUnmount = true;
   }
@@ -187,9 +187,9 @@ class CMSEntityItem extends Component {
   }
 }
 
-CMSEntityItem.propTypes = entityItem;
+Item.propTypes = entityItem;
 
-CMSEntityItem.defaltProps = {
+Item.defaltProps = {
   cmsCardPosition: 'body',
 };
 
@@ -205,4 +205,4 @@ const mapDispatchToProps = dispatch => ({
   markForDelete: (...props) => dispatch(App.actions.markForDelete(...props)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CMSEntityItem);
+export default connect(mapStateToProps, mapDispatchToProps)(Item);

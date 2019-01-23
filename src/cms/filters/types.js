@@ -1,6 +1,6 @@
 import { deviceTypes } from '/src/cms/device/types';
 import PropTypes from 'prop-types';
-import { field } from '/src/cms/cms-entity-grid/types';
+import { field } from '/src/cms/collections/types';
 
 export const toolbar = {
   ...deviceTypes,

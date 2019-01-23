@@ -1,23 +1,23 @@
 import React, { Fragment, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import Device from '/src/cms/device';
-import Button from '/src/cms/elements/button';
+import Device from '/src/cms/device/index';
+import Button from '/src/cms/elements/button/index';
 import { Check } from 'styled-icons/fa-solid/Check';
 import { Cancel } from 'styled-icons/material/Cancel';
-import Auth from '/src/cms/auth';
-import { Toolbar } from '/src/cms/toolbar';
+import Auth from '/src/cms/auth/index';
+import { Toolbar } from '/src/cms/toolbar/index';
 import { firestoreConnect } from 'react-redux-firebase';
-import Activity from '/src/cms/activity';
-import Toaster from '/src/cms/elements/toaster';
+import Activity from '/src/cms/activity/index';
+import Toaster from '/src/cms/elements/toaster/index';
 import StackGrid from 'react-stack-grid';
 import { TrashAlt } from 'styled-icons/boxicons-solid/TrashAlt';
-import App from '/src/cms/app';
-import CMSEntityItem from './cms-entity-item';
+import App from '/src/cms/app/index';
+import CMSEntityItem from './item';
 import styles from './styles.scss';
-import { cmsEntityGrid } from './types';
-import * as selectors from './selectors';
-import * as actions from './actions';
+import { cmsEntityGrid } from '../../types';
+import * as selectors from '../../selectors';
+import * as actions from '../../actions';
 
 const calcColumnWidth = (isMobile, sideNavOpen) => {
   if (isMobile) {
@@ -28,7 +28,7 @@ const calcColumnWidth = (isMobile, sideNavOpen) => {
   return `${Math.round(100 / ((window.innerWidth - App.consts.SIDE_NAV_COLLAPSE_WIDTH) / 350))}%`;
 };
 
-class CMSEntityGrid extends PureComponent {
+class Grid extends PureComponent {
   render() {
     const {
       route, toggleDeleteMode, filters, sortOptions, isMobile, list, icon,
@@ -84,7 +84,7 @@ class CMSEntityGrid extends PureComponent {
   }
 }
 
-CMSEntityGrid.propTypes = cmsEntityGrid;
+Grid.propTypes = cmsEntityGrid;
 
 const mapStateToProps = (state, ownProps) => ({
   isMobile: Device.selectors.isMobile(state),
@@ -105,4 +105,4 @@ export default compose(
   firestoreConnect(props => ([{
     collection: props.collection,
   }])),
-)(CMSEntityGrid);
+)(Grid);

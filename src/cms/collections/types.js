@@ -16,6 +16,26 @@ export const field = PropTypes.shape({
   validateWith: PropTypes.func,
 });
 
+export const collectionEditor = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  icon: PropTypes.node,
+  children: PropTypes.any,
+  filters: PropTypes.arrayOf(PropTypes.string),
+  sortOptions: PropTypes.arrayOf(PropTypes.string),
+  fields: PropTypes.arrayOf(field).isRequired,
+};
+
+export const collectionContainer = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  icon: PropTypes.node,
+  children: PropTypes.any,
+  filters: PropTypes.arrayOf(PropTypes.string),
+  sortOptions: PropTypes.arrayOf(PropTypes.string),
+  fields: PropTypes.arrayOf(field).isRequired,
+};
+
 export const cmsEntityGrid = {
   ...deviceTypes,
   route: PropTypes.string.isRequired,

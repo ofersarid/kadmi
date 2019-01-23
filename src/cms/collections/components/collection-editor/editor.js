@@ -1,23 +1,23 @@
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Check } from 'styled-icons/fa-solid/Check';
-import { Dialog } from '/src/cms/elements/dialog';
-import { UserInput } from '/src/cms/elements';
+import { Dialog } from '/src/cms/elements/dialog/index';
+import { UserInput } from '/src/cms/elements/index';
 import { hashHistory } from 'react-router';
-import Device from '/src/cms/device';
+import Device from '/src/cms/device/index';
 import { ModeEdit } from 'styled-icons/material/ModeEdit';
 import { AddCircle } from 'styled-icons/material/AddCircle';
-import Routes from '/src/routes';
+import Routes from '/src/routes/index';
 import autoBind from 'auto-bind';
 import isEqual from 'lodash/isEqual';
 import difference from 'lodash/difference';
 import { compose } from 'redux';
 import pluralize from 'pluralize';
-import { entityEditor } from './types';
-import { updateEntity } from './actions';
-import * as selectors from './selectors';
+import { entityEditor } from '../../types';
+import { updateEntity } from '../../actions';
+import * as selectors from '../../selectors';
 
-class CMSEntityEditor extends PureComponent {
+class Editor extends PureComponent {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -93,7 +93,7 @@ class CMSEntityEditor extends PureComponent {
   resolveValue(value, field) {
     const { list } = this.props;
     switch (true) {
-      case value && value.toDate:
+      case Boolean(value && value.toDate):
         return value.toDate();
       case field.key === 'displayOrder':
         return value === '' ? list.length + 1 : value;
@@ -157,29 +157,12 @@ class CMSEntityEditor extends PureComponent {
             />
           );
         })}
-
-        {/* /!* ----- POST ----- *!/ */}
-        {/* {editorFields.post && ( */}
-        {/* <UserInput */}
-        {/* placeholder={this.resolvePlaceHolder(editorFields.post)} */}
-        {/* onChange={value => this.onChange({ */}
-        {/* post: value, */}
-        {/* })} */}
-        {/* value={post} */}
-        {/* label={editorFields.post.alias || 'Post'} */}
-        {/* type="post" */}
-        {/* onValidation={isValid => this.onValidation(editorFields.post.required ? isValid : true, 'post')} */}
-        {/* min={1} */}
-        {/* disabled={editorFields.post.disabled} */}
-        {/* optional={!editorFields.post.required} */}
-        {/* /> */}
-        {/* )} */}
       </Dialog >
     );
   }
 }
 
-CMSEntityEditor.propTypes = entityEditor;
+Editor.propTypes = entityEditor;
 
 const mapStateToProps = (state, ownProps) => ({
   deviceType: Device.selectors.deviceType(state),
@@ -196,4 +179,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-)(CMSEntityEditor);
+)(Editor);
