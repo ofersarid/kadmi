@@ -1,0 +1,19 @@
+@import '/src/website/dimentions';
+
+.mainContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  background: #f3f3f3;
+  overflow: auto;
+  font-family: Arial;
+}
+
+.stage {
+  min-height: 100%;
+  padding-top: $nav-bar-height;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}

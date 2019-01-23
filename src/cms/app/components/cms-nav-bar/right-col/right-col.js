@@ -16,7 +16,7 @@ const RightCol = props => (
     <li >
       <Button
         color="black-invert"
-        linkTo="home"
+        linkTo="website/home"
         className={styles.btn}
         justIcon={props.isMobile}
       >

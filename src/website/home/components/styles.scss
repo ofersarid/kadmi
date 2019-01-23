@@ -1,0 +1,66 @@
+@import '/src/website/dimentions';
+
+.home {
+  min-height: calc(100% - #{$nav-bar-height});
+  position: relative;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 'category-1 category-2 category-3' 'category-1 category-2 category-4' 'category-5 category-2 category-4';
+  height: calc(100% - #{$nav-bar-height});
+  position: relative;
+  grid-gap: 15px;
+  box-sizing: border-box;
+  padding: 15px;
+  
+  & * {
+    position: relative;
+  }
+}
+
+.gridContainer-mobile {
+  grid-gap: 15px 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: 'category-1' 'category-2' 'category-3' 'category-4' 'category-5';
+}
+
+.category {
+  background: #e3e3e3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category1 {
+  grid-area: category-1;
+}
+
+.category2 {
+  grid-area: category-2;
+  background: url('./pergolas.jpg') -340px 0;
+  background-size: cover;
+}
+
+.category3 {
+  grid-area: category-3;
+}
+
+.category4 {
+  grid-area: category-4;
+  background: url('./outdoor.jpg') center center;
+  background-size: cover;
+}
+
+.category5 {
+  grid-area: category-5;
+}
+
+.title {
+  display: inline-block;
+  font-size: 30px;
+  color: white;
+}

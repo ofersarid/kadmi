@@ -1,0 +1,12 @@
+@import '/src/website/dimentions';
+
+.navBar {
+  height: $nav-bar-height;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  background: rgba(white, 0.9);
+}

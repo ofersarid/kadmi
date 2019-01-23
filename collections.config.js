@@ -1,6 +1,9 @@
 import React from 'react';
 import { Contact } from 'styled-icons/boxicons-solid/Contact';
-import { Event } from 'styled-icons/material/Event';
+import { Nature } from 'styled-icons/material/Nature';
+import { Home } from 'styled-icons/icomoon/Home';
+import { DockTop } from 'styled-icons/boxicons-solid/DockTop';
+import { DockBottom } from 'styled-icons/boxicons-solid/DockBottom';
 
 export const CLIENT_ID = 'omerkadmi.co.il';
 
@@ -35,7 +38,7 @@ export const COLLECTIONS = [
   }, {
     id: 'pergolas',
     name: 'Pergolas',
-    icon: <Event />,
+    icon: <DockTop />,
     filters: ['title', 'description'],
     sortOptions: ['dateTime', 'title'],
     fields: [{
@@ -63,7 +66,7 @@ export const COLLECTIONS = [
   }, {
     id: 'decks',
     name: 'Decks',
-    icon: <Event />,
+    icon: <DockBottom />,
     filters: ['title', 'description'],
     sortOptions: ['dateTime', 'title'],
     fields: [{
@@ -91,7 +94,7 @@ export const COLLECTIONS = [
   }, {
     id: 'indoor',
     name: 'Indoors',
-    icon: <Event />,
+    icon: <Home />,
     filters: ['title', 'description'],
     sortOptions: ['dateTime', 'title'],
     fields: [{
@@ -119,7 +122,7 @@ export const COLLECTIONS = [
   }, {
     id: 'outdoors',
     name: 'Outdoors',
-    icon: <Event />,
+    icon: <Nature />,
     filters: ['title', 'description'],
     sortOptions: ['dateTime', 'title'],
     fields: [{

@@ -1,20 +1,16 @@
 import React from 'react';
 import { Route, Redirect, IndexRedirect } from 'react-router';
 import { MainContainer } from '/src/cms/app';
-import { HomePage } from '/src/website/home';
-import About from '/src/website/about';
+import { Home } from '/src/website/home';
 import LoginPage from '/src/cms/auth/components/login-page/login-page';
-import { ContactUs } from '/src/website/contact-us';
+import { WebsiteMainContainer } from '/src/website/app';
 import ReduxRoutes from '/src/routes/components/redux-routes/redux-routes';
 import { COLLECTIONS } from '/collections.config';
 import CollectionContainer from '/src/cms/collections/components/collection-container/collection-container';
 
 export default (
   <Route path="/" component={ReduxRoutes} >
-    <IndexRedirect to="home" />
-    <Route path="home" component={HomePage} />
-    <Route path="about" component={About} />
-    <Route path="contact" component={ContactUs} />
+    <IndexRedirect to="website/home" />
     <Route path="cms" component={MainContainer} >
       {COLLECTIONS.map(col => (
         <Route
@@ -28,6 +24,10 @@ export default (
       ))}
     </Route >
     <Route path="login" component={LoginPage} />
-    <Redirect from="*" to="/home" />
+    <Route path="website" component={WebsiteMainContainer} >
+      <IndexRedirect to="home" />
+      <Route path="home" component={Home} />
+    </Route >
+    <Redirect from="*" to="/website/home" />
   </Route >
 );
