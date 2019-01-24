@@ -3386,7 +3386,7 @@ clean-css@4.2.x:
   dependencies:
     source-map "~0.6.0"
 
-cleave.js@^1.4.6:
+cleave.js@^1.4.7:
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.4.7.tgz#5e94f4880946aa778b55ecaafc76d122600ff4d0"
 
@@ -10426,7 +10426,7 @@ react-dom-factories@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.2.tgz#eb7705c4db36fb501b3aa38ff759616aa0ff96e0"
 
-"react-dom@0.14.x || ^15.0.0 || ^16.0.0", react-dom@^16.6.3, react-dom@^16.7.0:
+react-dom@^16.0.0, react-dom@^16.6.3, react-dom@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.7.0.tgz#a17b2a7ca89ee7390bc1ed5eb81783c7461748b8"
   dependencies:
@@ -10447,6 +10447,10 @@ react-fuzzy@^0.5.2:
     classnames "^2.2.5"
     fuse.js "^3.0.1"
     prop-types "^15.5.9"
+
+react-ga@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.6.tgz#5a2e2fa78ae298e5b0a4498210eeec631ef1b562"
 
 react-html-parser@^2.0.2:
   version "2.0.2"
@@ -10749,7 +10753,7 @@ react-treebeard@^3.1.0:
     shallowequal "^1.1.0"
     velocity-react "^1.4.1"
 
-"react@^0.14.6 || ^15.0.0-0 || ^16.0.0-0", react@^16.6.3, react@^16.7.0:
+"react@^15.6.2 || ^16.0", react@^16.6.3, react@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.7.0.tgz#b674ec396b0a5715873b350446f7ea0802ab6381"
   dependencies:

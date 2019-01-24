@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   background: rgba(white, 0.9);
-  padding: 0 25px;
+  padding: 0 15px;
   overflow: hidden;
   justify-content: space-between;
   box-sizing: border-box;
@@ -22,6 +22,14 @@
 .phone {
   margin-left: 10px !important;
   margin-right: 0 !important;
+}
+
+.phone-mobile {
+  margin-left: 0 !important;
+}
+
+.number-mobile {
+  display: none;
 }
 
 .btn {
