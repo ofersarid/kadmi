@@ -7,6 +7,7 @@ import { home } from '../types';
 import styles from './styles.scss';
 import pergolas from './pergolas.jpg';
 import outdoor from './outdoor.jpg';
+import indoor from './indoor.jpg';
 import decks from './decks.jpg';
 import renewals from './renewals.jpg';
 import Category from './category';
@@ -15,14 +16,14 @@ const CATEGORRIES = [{
   label: 'דקים',
   bgImg: decks,
 }, {
+  label: 'חוץ',
+  bgImg: outdoor,
+}, {
   label: 'פרגולות',
   bgImg: pergolas,
 }, {
   label: 'פנים',
-  bgImg: '',
-}, {
-  label: 'חוץ',
-  bgImg: outdoor,
+  bgImg: indoor,
 }, {
   label: 'חידוש',
   bgImg: renewals,
