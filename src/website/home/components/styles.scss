@@ -103,6 +103,7 @@
   justify-content: center;
   box-shadow: inset 10px -20px 100px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(white, 0.62);
   transition: .3s ease-out;
+  will-change: box-shadow;
 }
 
 .title-mobile {

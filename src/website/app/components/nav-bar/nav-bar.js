@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import Device from '/src/cms/device';
 import styles from './styles.scss';
 import { navBar } from '../../types';
+import logo from './logo.png';
 
 const NavBar = () => (
-  <div className={styles.navBar} >NavBar</div >
+  <div className={styles.navBar} >
+    <img src={logo} />
+  </div >
 );
 
 NavBar.propTypes = navBar;
