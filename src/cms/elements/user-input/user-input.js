@@ -35,6 +35,7 @@ const resolveComponentByType = (props) => {
           ref={props.getRef}
           validateWith={props.validateWith}
           optional={props.optional}
+          rtl={props.rtl}
         />
       );
     case 'date-time':
@@ -121,6 +122,7 @@ const resolveComponentByType = (props) => {
           validateWith={props.validateWith}
           optional={props.optional}
           onlyNumbers={props.type === 'number'}
+          rtl={props.rtl}
         />
       );
   }
@@ -153,6 +155,8 @@ UserInput.defaultProps = {
   onEnterKeyPress: noop,
   disabled: false,
   value: '',
+  rtl: false,
+  optional: false,
 };
 
 const mapStateToProps = state => ({

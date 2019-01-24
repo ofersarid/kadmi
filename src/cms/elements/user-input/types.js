@@ -21,6 +21,8 @@ export const userInput = {
   checkedChildren: PropTypes.any,
   unCheckedChildren: PropTypes.any,
   options: PropTypes.arrayOf(PropTypes.string),
+  rtl: PropTypes.bool,
+  optional: PropTypes.bool,
 };
 
 export const switchTypes = {
@@ -55,6 +57,7 @@ export const validationIndicator = {
   show: PropTypes.bool,
   numeric: PropTypes.bool,
   validateWith: PropTypes.func,
+  rtl: PropTypes.bool,
 };
 
 export const link = {

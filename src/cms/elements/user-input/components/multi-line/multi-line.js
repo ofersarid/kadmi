@@ -44,12 +44,12 @@ class MultiLine extends PureComponent {
   }
 
   render() {
-    const { placeholder, value, max, min, onValidation, validateWith, optional } = this.props;
+    const { placeholder, value, max, min, onValidation, validateWith, optional, rtl } = this.props;
     const { showValidation } = this.state;
     return (
       <div className={styles.multiLine} >
         <textarea
-          className={cx(styles.textArea, showValidation && styles.removeRightBorder)}
+          className={cx(styles.textArea, showValidation && (rtl ? styles.removeLeftBorder : styles.removeRightBorder))}
           placeholder={placeholder}
           value={value}
           onChange={this.handleOnChange}
@@ -74,6 +74,7 @@ MultiLine.propTypes = userInput;
 
 MultiLine.defaultProps = {
   onValidation: noop,
+  rtl: false
 };
 
 export default MultiLine;

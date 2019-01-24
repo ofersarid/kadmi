@@ -5,9 +5,9 @@ import autoBind from 'auto-bind';
 import { compose } from 'redux';
 import { UserInput } from '/src/cms/elements';
 import Button from '/src/cms/elements/button';
-import { validatePhone, toTitleCase } from '/src/cms/utils';
+import { validatePhone, toTitleCase, validateEmail } from '/src/cms/utils';
 import { createContact } from './actions';
-import { contactForm } from '../../types';
+import { contactForm } from '../../../types';
 import styles from './styles.scss';
 
 class ContactForm extends PureComponent {
@@ -22,8 +22,9 @@ class ContactForm extends PureComponent {
       isValid: false,
     };
     this.defaultState = this.state;
-    this.validatedFields = ['email'];
+    this.validatedFields = [];
     this.nameRef = React.createRef();
+    this.emailRef = React.createRef();
     this.phoneRef = React.createRef();
   }
 
@@ -43,8 +44,15 @@ class ContactForm extends PureComponent {
 
   clearForm() {
     this.setState(this.defaultState);
-    this.nameRef.current.hideValidation();
-    this.phoneRef.current.hideValidation();
+    if (!this.unmounting) {
+      this.nameRef.current.hideValidation();
+      this.emailRef.current.hideValidation();
+      this.phoneRef.current.hideValidation();
+    }
+  }
+
+  componentWillUnmount() {
+    this.unmounting = true;
   }
 
   render() {
@@ -58,9 +66,9 @@ class ContactForm extends PureComponent {
             name: toTitleCase(value),
           })}
           value={name}
-          label="Name"
           min={1}
           getRef={this.nameRef}
+          rtl
         />
         <UserInput
           placeholder="דואל"
@@ -68,29 +76,31 @@ class ContactForm extends PureComponent {
             email: value,
           })}
           value={email}
-          label="Email"
           min={1}
           getRef={this.emailRef}
+          validateWith={validateEmail}
+          rtl
         />
         <UserInput
           placeholder="טלפון"
           onChange={value => this.onChange({
-            phone: value,
+            phone: value.replace(/\D/g, ''),
           })}
           value={phone}
-          label="Phone"
           min={1}
-          getRef={this.emailRef}
+          getRef={this.phoneRef}
+          validateWith={validatePhone}
+          rtl
         />
         <UserInput
-          placeholder="Tell us about it..."
+          placeholder="כמה מילים..."
           onChange={value => this.onChange({
             message: value,
           })}
           value={message}
-          label="Message"
           type="multi-line"
           optional
+          rtl
         />
         <Button
           stretch
@@ -99,13 +109,13 @@ class ContactForm extends PureComponent {
           disable={!isValid}
           onClick={() => {
             onSend();
-            this.props.createContact(name, email, message).then(() => {
+            this.props.createContact(name, email, message, phone).then(() => {
               onSuccess();
               this.clearForm();
             });
           }}
         >
-          SEND
+          שלח
         </Button>
       </div>
     );

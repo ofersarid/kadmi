@@ -1,11 +1,8 @@
 .formContainer {
   width: 100%;
-  max-width: 500px;
-  border: 1px solid rgba(black, 0.2);
-  border-radius: 3px;
-  padding: 20px;
-  margin: 0 10px;
-  background: rgba(white, 0.5);
+  padding: 0 15px 15px;
+  box-sizing: border-box;
+  
 }
 
 .sendBtn {
@@ -14,6 +11,7 @@
   :global {
     .inner {
       height: 44px;
+      font-size: 18px;
     }
   }
 }

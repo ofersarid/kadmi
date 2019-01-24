@@ -4,6 +4,7 @@ import { Nature } from 'styled-icons/material/Nature';
 import { Home } from 'styled-icons/icomoon/Home';
 import { DockTop } from 'styled-icons/boxicons-solid/DockTop';
 import { DockBottom } from 'styled-icons/boxicons-solid/DockBottom';
+import { validateEmail } from '/src/cms/utils';
 
 export const CLIENT_ID = 'omerkadmi.co.il';
 
@@ -25,9 +26,15 @@ export const COLLECTIONS = [
       key: 'phone',
       label: 'Phone',
       type: 'single-line',
-      min: 10,
-      max: 10,
+      min: 9,
+      max: 11,
       required: true,
+    }, {
+      key: 'email',
+      label: 'Email',
+      type: 'single-line',
+      required: true,
+      validateWith: validateEmail,
     }, {
       key: 'created',
       label: 'Created',

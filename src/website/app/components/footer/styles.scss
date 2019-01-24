@@ -8,10 +8,11 @@
   display: flex;
   align-items: center;
   background: rgba(white, 0.9);
-  padding: 0 15px;
   overflow: hidden;
   box-sizing: border-box;
   transform: translateY(calc(100% - #{$nav-bar-height}));
+  transition: .5s ease-out;
+  flex-direction: column;
 }
 
 .footerTop {

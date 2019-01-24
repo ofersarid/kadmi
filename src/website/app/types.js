@@ -12,3 +12,9 @@ export const navBar = {
 export const footer = {
   ...deviceTypes,
 };
+
+export const contactForm = {
+  ...deviceTypes,
+  createContact: PropTypes.func.isRequired,
+  onSend: PropTypes.func.isRequired,
+};

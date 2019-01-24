@@ -55,14 +55,14 @@ class SingleLine extends PureComponent {
   render() {
     const {
       placeholder, onEnterKeyPress, value, max, min, onValidation, mask,
-      validateWith, onlyNumbers, optional,
+      validateWith, onlyNumbers, optional, rtl,
     } = this.props;
     const { showValidation } = this.state;
     return (
       <div className={cx('single-line', styles.singleLine)} >
         <input
           type={mask ? 'password' : 'text'}
-          className={cx(styles.textInput, showValidation && styles.removeRightBorder)}
+          className={cx(styles.textInput, showValidation && (rtl ? styles.removeLeftBorder : styles.removeRightBorder))}
           placeholder={placeholder}
           onChange={this.handleOnChange}
           onKeyPress={e => onKeyPress(e, onEnterKeyPress)}
@@ -78,6 +78,7 @@ class SingleLine extends PureComponent {
             value={value}
             validateWith={validateWith}
             numeric={onlyNumbers}
+            rtl
           />
         )}
       </div >

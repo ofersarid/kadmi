@@ -17,3 +17,22 @@
   flex-shrink: 0;
   box-sizing: border-box;
 }
+
+$placeholderColor: #9f9b9b;
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $placeholderColor;
+  font-style: normal;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: $placeholderColor;
+  font-style: normal;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: $placeholderColor;
+  font-style: normal;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: $placeholderColor;
+  font-style: normal;
+}

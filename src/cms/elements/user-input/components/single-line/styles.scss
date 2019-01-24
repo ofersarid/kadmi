@@ -23,3 +23,12 @@
   border-radius: 3px 0 0 3px !important;
   border-right: none !important;
 }
+
+.removeLeftBorder {
+  border-radius: 0 3px 3px 0 !important;
+  border-left: none !important;
+}
+
+.rtl {
+
+}

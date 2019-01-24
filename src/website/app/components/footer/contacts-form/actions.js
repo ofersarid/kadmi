@@ -11,13 +11,13 @@ export const createContact = (name, email, message, phone) => {
       const id = snapshot.docs[0] ? snapshot.docs[0].id : null;
       if (id) {
         return contacts.doc(id).update({
-          name,
+          title: name,
           email,
           phone,
         });
       }
       return contacts.add({
-        name,
+        title: name,
         email,
         phone,
       });
@@ -25,9 +25,10 @@ export const createContact = (name, email, message, phone) => {
 
     /* Send email to desk */
     const deskParams = {
-      'reply_to': email,
+      'email': email,
       'from_name': name,
       'message_html': message,
+      'phone': phone,
     };
     return send(EMAIL_JS.SERVICE_ID, EMAIL_JS.TEMPLATES.CONTACT, deskParams, EMAIL_JS.USER_ID);
   };
