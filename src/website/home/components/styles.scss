@@ -11,7 +11,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: 'category-1 category-2 category-3' 'category-1 category-2 category-4' 'category-5 category-2 category-4';
-  height: calc(100% - #{$nav-bar-height});
+  height: calc(100% - #{2 * $nav-bar-height});
   position: relative;
   grid-gap: 15px;
   box-sizing: border-box;
@@ -41,6 +41,10 @@
   animation-duration: 1s !important;
   overflow: hidden;
   cursor: pointer;
+  
+  * {
+    cursor: pointer;
+  }
   
   @for $i from 0 to 4 {
     &:nth-child(#{$i + 1}) {
@@ -88,7 +92,7 @@
   grid-area: category-5;
 }
 
-.title {
+.label {
   font-size: 30px;
   color: white;
   position: absolute;

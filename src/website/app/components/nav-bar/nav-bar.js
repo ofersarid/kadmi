@@ -10,7 +10,7 @@ import { navBar } from '../../types';
 import logo from './logo.png';
 
 const NavBar = props => (
-  <div className={styles.navBar} >
+  <div className={cx(styles.navBar, styles[`navBar-${props.deviceType}`])} >
     <img src={logo} />
     <div >
       <Button

@@ -10,7 +10,7 @@ const Category = props => {
   return (
     <div className={cx(styles.category, styles[`category${props.id}`])} >
       <div className={cx('img', styles.img)} style={{ backgroundImage: `url(${props.bgImg})` }}/>
-      <label className={cx(styles.title, styles[`title-${props.deviceType}`])}>{props.label}</label>
+      <label className={cx(styles.label, styles[`title-${props.deviceType}`])}>{props.label}</label>
     </div >
   );
 };

@@ -3,7 +3,7 @@
 .navBar {
   height: $nav-bar-height;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 1;
   display: flex;
@@ -16,6 +16,12 @@
   
   img {
     height: 80%;
+  }
+}
+
+.navBar-mobile {
+  img {
+    height: 35px;
   }
 }
 

@@ -4,6 +4,7 @@ import Device from '/src/cms/device';
 import styles from './styles.scss';
 import { websiteMainContainer } from '../../types';
 import NavBar from '../nav-bar/nav-bar';
+import Footer from '../footer/footer';
 
 const WebsiteMainContainer = props => (
   <Fragment >
@@ -11,6 +12,7 @@ const WebsiteMainContainer = props => (
     <div className={styles.mainContainer} >
       <NavBar />
       <div className={styles.stage} >{props.children}</div >
+      <Footer />
     </div >
   </Fragment >
 );
