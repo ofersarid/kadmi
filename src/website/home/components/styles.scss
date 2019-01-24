@@ -40,6 +40,7 @@
   animation: $fadeIn;
   animation-duration: 1s !important;
   overflow: hidden;
+  cursor: pointer;
   
   @for $i from 0 to 4 {
     &:nth-child(#{$i + 1}) {
@@ -55,8 +56,14 @@
     :global {
       .img {
         transform: scale(1.05);
-        filter: sepia(0.7);
+        filter: sepia(0.7) brightness(80%);
       }
+    }
+  }
+  
+  &:active {
+    label {
+      box-shadow: inset 10px -20px 100px rgba(0, 0, 0, 0.18), 0 0 0 30px rgba(white, 0.2);
     }
   }
 }
@@ -94,8 +101,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.62);
-  box-shadow: inset 10px -20px 100px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 10px -20px 100px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(white, 0.62);
+  transition: .3s ease-out;
+}
+
+.title-mobile {
+  box-shadow: none;
 }
 
 .img {
@@ -103,5 +114,5 @@
   height: 100%;
   background-position: center center;
   background-size: cover;
-  transition: .5s ease-out;
+  transition: 2s ease-out;
 }
