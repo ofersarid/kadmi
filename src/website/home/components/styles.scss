@@ -1,4 +1,5 @@
 @import '/src/website/dimentions';
+@import '/src/cms/animations';
 
 .home {
   min-height: calc(100% - #{$nav-bar-height});
@@ -35,6 +36,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  animation: $fadeIn;
+  animation-duration: 1s !important;
+  overflow: hidden;
+  
+  @for $i from 0 to 4 {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: #{$i * 250}ms !important;
+  
+      &:hover {
+        filter: hue-rotate(#{($i + 1) * 100}deg);
+      }
+    }
+  }
+  
+  &:hover {
+    :global {
+      .img {
+        transform: scale(1.05);
+        filter: sepia(0.7);
+      }
+    }
+  }
 }
 
 .category1 {
@@ -58,13 +82,20 @@
 }
 
 .title {
-  display: block;
   font-size: 30px;
   color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: inset 10px -20px 100px rgba(0, 0, 0, 0.18);
 }
 
 .img {
@@ -72,4 +103,5 @@
   height: 100%;
   background-position: center center;
   background-size: cover;
+  transition: .5s ease-out;
 }
