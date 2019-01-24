@@ -11,8 +11,23 @@
   background: rgba(white, 0.9);
   padding: 0 25px;
   overflow: hidden;
+  justify-content: space-between;
+  box-sizing: border-box;
   
   img {
     height: 80%;
+  }
+}
+
+.phone {
+  margin-left: 10px !important;
+  margin-right: 0 !important;
+}
+
+.btn {
+  :global {
+    .inner {
+      background: #f3f3f3;
+    }
   }
 }
