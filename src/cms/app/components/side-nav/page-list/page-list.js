@@ -6,7 +6,7 @@ import Routes from '/src/routes';
 import { Tooltip } from '/src/cms/elements';
 import { compose } from 'redux';
 import { Collection } from 'styled-icons/boxicons-solid/Collection';
-import { Settings } from 'styled-icons/octicons/Settings';
+import { Gem } from 'styled-icons/fa-solid/Gem';
 import { COLLECTIONS, GENERAL_ASSETS } from '/collections.config';
 import styles from './styles.scss';
 import { pageList } from '../../../types';
@@ -47,7 +47,7 @@ const PageList = props => (
           stretch
         >
           <Tooltip content={!props.sideNavOpen ? 'General Assets' : null} position="right" >
-            <Settings />
+            <Gem />
           </Tooltip >
           <div >General</div >
           {props.pathname.match('/general-assets') && (

@@ -9,6 +9,7 @@ import difference from 'lodash/difference';
 import isEqual from 'lodash/isEqual';
 import { GENERAL_ASSETS } from '/collections.config';
 import { Check } from 'styled-icons/fa-solid/Check';
+import { ActivityToaster } from '/src/cms/activity';
 import styles from './styles.scss';
 import { generalAssets } from '../../../types';
 import { updateEntity } from '../../../actions';
@@ -131,6 +132,7 @@ class GeneralAssets extends PureComponent {
             <span >Save</span >
           </Button >
         </div >
+        <ActivityToaster />
       </div >
     );
   }

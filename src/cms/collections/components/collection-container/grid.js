@@ -8,7 +8,7 @@ import { Cancel } from 'styled-icons/material/Cancel';
 import Auth from '/src/cms/auth/index';
 import { Toolbar } from '/src/cms/toolbar/index';
 import { firestoreConnect } from 'react-redux-firebase';
-import Activity from '/src/cms/activity/index';
+import { ActivityToaster } from '/src/cms/activity';
 import Toaster from '/src/cms/elements/toaster/index';
 import StackGrid from 'react-stack-grid';
 import { TrashAlt } from 'styled-icons/boxicons-solid/TrashAlt';
@@ -77,7 +77,7 @@ class Grid extends PureComponent {
             <div >Cancel</div >
           </Button >
         </Toaster >
-        <Activity.Toaster />
+        <ActivityToaster />
         {children}
       </Fragment >
     );
