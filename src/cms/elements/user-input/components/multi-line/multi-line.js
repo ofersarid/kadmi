@@ -49,7 +49,10 @@ class MultiLine extends PureComponent {
     return (
       <div className={styles.multiLine} >
         <textarea
-          className={cx(styles.textArea, showValidation && (rtl ? styles.removeLeftBorder : styles.removeRightBorder))}
+          className={cx(
+            styles.textArea,
+            showValidation && (rtl ? styles.removeLeftBorder : styles.removeRightBorder),
+          )}
           placeholder={placeholder}
           value={value}
           onChange={this.handleOnChange}

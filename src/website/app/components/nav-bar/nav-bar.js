@@ -13,7 +13,7 @@ import { selectors as collectionSelectors } from '/src/cms/collections';
 import logoText from './logoText.svg';
 
 const NavBar = props => (
-  <div className={cx(styles.navBar, styles[`navBar-${props.deviceType}`])} >
+  <div className={cx(styles.navBar)} >
     <div className={styles.logoContainer} >
       {props.generalAssets && (
         <Fragment >

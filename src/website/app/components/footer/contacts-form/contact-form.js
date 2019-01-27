@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 import Device from '/src/cms/device';
 import autoBind from 'auto-bind';
 import { compose } from 'redux';
@@ -22,7 +23,6 @@ class ContactForm extends PureComponent {
       isValid: false,
     };
     this.defaultState = this.state;
-    this.validatedFields = [];
     this.nameRef = React.createRef();
     this.emailRef = React.createRef();
     this.phoneRef = React.createRef();
@@ -57,9 +57,9 @@ class ContactForm extends PureComponent {
 
   render() {
     const { name, email, message, isValid, phone } = this.state;
-    const { onSend, onSuccess } = this.props;
+    const { onSend, onSuccess, deviceType } = this.props;
     return (
-      <div className={styles.formContainer}>
+      <div className={cx(styles.formContainer, styles[`formContainer-${deviceType}`])}>
         <UserInput
           placeholder="שם"
           onChange={value => this.onChange({
@@ -69,6 +69,7 @@ class ContactForm extends PureComponent {
           min={1}
           getRef={this.nameRef}
           rtl
+          className={styles[`singleLine-${deviceType}`]}
         />
         <UserInput
           placeholder="דואל"
@@ -80,6 +81,7 @@ class ContactForm extends PureComponent {
           getRef={this.emailRef}
           validateWith={validateEmail}
           rtl
+          className={styles[`singleLine-${deviceType}`]}
         />
         <UserInput
           placeholder="טלפון"
@@ -91,6 +93,7 @@ class ContactForm extends PureComponent {
           getRef={this.phoneRef}
           validateWith={validatePhone}
           rtl
+          className={styles[`singleLine-${deviceType}`]}
         />
         <UserInput
           placeholder="כמה מילים..."
@@ -101,6 +104,7 @@ class ContactForm extends PureComponent {
           type="multi-line"
           optional
           rtl
+          stretch
         />
         <Button
           stretch

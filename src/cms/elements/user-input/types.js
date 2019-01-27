@@ -23,6 +23,7 @@ export const userInput = {
   options: PropTypes.arrayOf(PropTypes.string),
   rtl: PropTypes.bool,
   optional: PropTypes.bool,
+  stretch: PropTypes.bool,
 };
 
 export const switchTypes = {

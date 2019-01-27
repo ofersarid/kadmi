@@ -36,6 +36,7 @@ const resolveComponentByType = (props) => {
           validateWith={props.validateWith}
           optional={props.optional}
           rtl={props.rtl}
+          stretch={props.stretch}
         />
       );
     case 'date-time':
@@ -123,6 +124,7 @@ const resolveComponentByType = (props) => {
           optional={props.optional}
           onlyNumbers={props.type === 'number'}
           rtl={props.rtl}
+          stretch={props.stretch}
         />
       );
   }
@@ -135,6 +137,7 @@ const UserInput = props => (
     props.label && styles[`withLabel-${props.deviceType}`],
     props.className,
     props.disabled && styles.disabled,
+    props.stretch && styles.stretch,
     (['multi-line', 'post', 'image', 'downloadable'].includes(props.type)) && styles.areaField)}
   >
     {props.label && (

@@ -62,7 +62,10 @@ class SingleLine extends PureComponent {
       <div className={cx('single-line', styles.singleLine)} >
         <input
           type={mask ? 'password' : 'text'}
-          className={cx(styles.textInput, showValidation && (rtl ? styles.removeLeftBorder : styles.removeRightBorder))}
+          className={cx(
+            styles.textInput,
+            showValidation && (rtl ? styles.removeLeftBorder : styles.removeRightBorder),
+          )}
           placeholder={placeholder}
           onChange={this.handleOnChange}
           onKeyPress={e => onKeyPress(e, onEnterKeyPress)}

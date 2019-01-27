@@ -11,8 +11,9 @@
   overflow: hidden;
   box-sizing: border-box;
   transform: translateY(calc(100% - #{$nav-bar-height}));
-  transition: .5s ease-out;
+  transition: .35s ease-out;
   flex-direction: column;
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .footerTop {
