@@ -31,13 +31,9 @@ export const filteredOrderedList = createSelector(filteredList, orderBy, (_list,
 
 export const map = (state, collection) => state.get('fireStore').data[collection] || {};
 
-export const event = createSelector(map, pathname, (_events, pathName) => {
-  return _events[pathName.split('/').pop()];
-});
+export const entityById = (id, collection, state) => map(state, collection)[id];
 
-export const eventById = (id, collection, state) => map(state, collection)[id];
-
-export const entitySelector = (state, collection, route, editorFields) => {
+export const entitySelector = (state, collection, route) => {
   const coll = state.get('fireStore').data[collection] || {};
   const getId = () => pathname(state).split(`${route}/edit/`)[1];
   return coll[getId()];

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import Device from '/src/cms/device/index';
+import { firestoreConnect } from 'react-redux-firebase';
 import cx from 'classnames';
 import { compose } from 'redux';
 import { home } from '../types';
@@ -12,7 +13,7 @@ import decks from './decks.jpg';
 import renewals from './renewals.jpg';
 import Category from './category';
 
-const CATEGORRIES = [{
+const CATEGORIES = [{
   label: 'דקים',
   bgImg: decks,
 }, {
@@ -34,7 +35,7 @@ const Home = props => {
     <Fragment >
       <div className={cx(styles.home)}>
         <div className={cx(styles.gridContainer, styles[`gridContainer-${props.deviceType}`])} >
-          {CATEGORRIES.map((item, i) => <Category key={item.label} label={item.label} bgImg={item.bgImg} id={i} />)}
+          {CATEGORIES.map((item, i) => <Category key={item.label} label={item.label} bgImg={item.bgImg} id={i} />)}
         </div >
       </div>
     </Fragment >
@@ -51,9 +52,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps, {}),
-  // firestoreConnect(() => ([{
-  //   collection: 'events',
-  //   orderBy: ['dateTime', 'desc'],
-  //   where: [['active', '==', true]],
-  // }])),
+  firestoreConnect(['settings']),
 )(Home);

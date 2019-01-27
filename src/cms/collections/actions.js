@@ -2,7 +2,7 @@ import App from '/src/cms/app/index';
 import uuidv4 from 'uuid/v4';
 import isEmpty from 'lodash/isEmpty';
 import Activity from '/src/cms/activity/index';
-import { eventById } from './selectors';
+import { entityById } from './selectors';
 
 const deleteFile = (path, firebase) => {
   if (!path) return;
@@ -26,17 +26,17 @@ const uploadFile = (file, fileName, firebase, dispatch) => {
   });
 };
 
-const update = (event, id, collection, firestore, firebase, dispatch) => {
+const update = (entity, id, collection, firestore, firebase, dispatch) => {
   const uploads = [];
-  const files = Object.keys(event).reduce((_files, key) => {
-    if (event[key] instanceof File) {
-      const extension = event[key].name.match(/\.[0-9a-z]+$/i)[0];
+  const files = Object.keys(entity).reduce((_files, key) => {
+    if (entity[key] instanceof File) {
+      const extension = entity[key].name.match(/\.[0-9a-z]+$/i)[0];
       const newName = `${uuidv4()}${extension}`;
       _files.push({
         key,
         name: newName,
-        file: event[key],
-        promise: uploads.push(uploadFile(event[key], newName, firebase, dispatch)),
+        file: entity[key],
+        promise: uploads.push(uploadFile(entity[key], newName, firebase, dispatch)),
       });
     }
     return _files;
@@ -47,25 +47,25 @@ const update = (event, id, collection, firestore, firebase, dispatch) => {
 
     return Promise.all(uploads).then(urls => {
       urls.forEach((url, index) => {
-        event[files[index].key] = url;
-        deleteFile(event[`${files[index].key}-storageLocation`], firebase);
-        event[`${files[index].key}-storageLocation`] = files[index].name;
+        entity[files[index].key] = url;
+        deleteFile(entity[`${files[index].key}-storageLocation`], firebase);
+        entity[`${files[index].key}-storageLocation`] = files[index].name;
       });
 
       /* Set activity - uploadingFiles to false */
       dispatch(Activity.actions.uploadComplete());
 
-      return id !== 'add' ? firestore.collection(collection).doc(id).set(event) : firestore.collection(collection).add(event);
+      return id !== 'add' ? firestore.collection(collection).doc(id).set(entity) : firestore.collection(collection).add(entity);
     });
   }
-  return id !== 'add' ? firestore.collection(collection).doc(id).set(event) : firestore.collection(collection).add(event);
+  return id !== 'add' ? firestore.collection(collection).doc(id).set(entity) : firestore.collection(collection).add(entity);
 };
 
-export const updateEntity = (event, id, collection) => {
+export const updateEntity = (entity, id, collection) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const firebase = getFirebase();
-    return update(event, id, collection, firestore, firebase, dispatch);
+    return update(entity, id, collection, firestore, firebase, dispatch);
   };
 };
 
@@ -77,13 +77,13 @@ export const deleteEntities = collection => {
     const batch = firestore.batch();
     ids.forEach(id => {
       batch.delete(firestore.collection(collection).doc(id));
-      const event = eventById(id, collection, getState());
+      const entity = entityById(id, collection, getState());
       // delete old image
-      if (event.imageStorageLocation) {
-        deleteFile(event.imageStorageLocation, firebase);
+      if (entity.imageStorageLocation) {
+        deleteFile(entity.imageStorageLocation, firebase);
       }
-      if (event.pdfStorageLocation) {
-        deleteFile(event.pdfStorageLocation, firebase);
+      if (entity.pdfStorageLocation) {
+        deleteFile(entity.pdfStorageLocation, firebase);
       }
     });
     return batch.commit();

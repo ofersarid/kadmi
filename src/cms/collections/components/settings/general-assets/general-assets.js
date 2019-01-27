@@ -13,7 +13,7 @@ import { ActivityToaster } from '/src/cms/activity';
 import styles from './styles.scss';
 import { generalAssets } from '../../../types';
 import { updateEntity } from '../../../actions';
-import { settings as getSettings } from '../../../selectors';
+import { settings as _settings } from '../../../selectors';
 
 class GeneralAssets extends PureComponent {
   constructor(props) {
@@ -143,7 +143,7 @@ GeneralAssets.propTypes = generalAssets;
 const mapStateToProps = state => ({
   deviceType: Device.selectors.deviceType(state),
   deviceOrientation: Device.selectors.deviceOrientation(state),
-  settings: getSettings(state),
+  settings: _settings(state),
 });
 
 const mapDispatchToProps = dispatch => ({
