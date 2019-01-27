@@ -1,3 +1,4 @@
-export { default as CollectionContainer } from './components/collection-container/contacts-cms';
-export { default as CollectionEditor } from './components/collection-editor/contact-editor';
+export { default as CollectionContainer } from './components/collection-container/collection-container';
+export { default as CollectionEditor } from './components/collection-editor/collection-editor';
+export { default as GeneralAssets } from './components/settings/general-assets/general-assets';
 export { default as propTypes } from './types';

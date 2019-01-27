@@ -15,7 +15,7 @@
   box-sizing: border-box;
   
   img {
-    height: 80%;
+    height: 70%;
   }
 }
 
@@ -41,7 +41,9 @@
 .btn {
   :global {
     .inner {
-      background: #f3f3f3;
+      background: #cac664;
+      color: white;
+      text-shadow: -1px -1px rgba(0, 0, 0, 0.12);
     }
   }
 }

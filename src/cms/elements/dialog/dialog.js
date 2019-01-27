@@ -73,7 +73,6 @@ class Dialog extends PureComponent {
                         if (action.closeDialog) this.close();
                       }}
                       color={action.color}
-                      async={action.async}
                       disable={action.disable}
                     >
                       {action.icon}

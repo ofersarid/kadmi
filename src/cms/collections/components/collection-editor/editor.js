@@ -86,10 +86,6 @@ class Editor extends PureComponent {
     return !isEqual(entity, this.state.entity);
   }
 
-  resolvePlaceHolder(field) {
-    return field.required ? 'required' : 'optional';
-  }
-
   resolveValue(value, field) {
     const { list } = this.props;
     switch (true) {

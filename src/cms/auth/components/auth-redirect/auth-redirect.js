@@ -5,15 +5,15 @@ import { hashHistory } from 'react-router';
 import Routes from '/src/routes/index';
 import { compose } from 'redux';
 import { COLLECTIONS } from '/collections.config';
-import { firestoreConnect } from 'react-redux-firebase';
+// import { firestoreConnect } from 'react-redux-firebase';
 
 class AuthRedirect extends PureComponent {
   constructor(props) {
     super(props);
-    this.collections = COLLECTIONS.reduce((list, item) => {
+    this.allowdPages = (COLLECTIONS.reduce((list, item) => {
       list.push(item.id);
       return list;
-    }, []);
+    }, [])).concat(['general-assets']);
     this.redirect(props);
   }
 
@@ -33,7 +33,7 @@ class AuthRedirect extends PureComponent {
       (uid && pathname === '/login')) {
       this.toCMSIndex();
     } else if (uid) {
-      const pageAllowed = this.collections.includes(pathname.split('cms/').pop().split('/')[0].toLowerCase());
+      const pageAllowed = this.allowdPages.includes(pathname.split('cms/').pop().split('/')[0].toLowerCase());
       if (!pageAllowed) {
         this.toCMSIndex();
       }
@@ -41,7 +41,7 @@ class AuthRedirect extends PureComponent {
   }
 
   toCMSIndex() {
-    const defaultCollection = this.collections[0];
+    const defaultCollection = this.allowdPages[0];
     if (defaultCollection) {
       hashHistory.push(`cms/${defaultCollection}`);
     }
@@ -64,8 +64,8 @@ const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect(() => ([{
-    collection: 'settings',
-    doc: 'collections',
-  }])),
+  // firestoreConnect(() => ([{
+  //   collection: 'settings',
+  //   doc: 'collections',
+  // }])),
 )(AuthRedirect);

@@ -78,3 +78,8 @@ export const entityEditor = {
   pathname: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(PropTypes.object),
 };
+
+export const generalAssets = {
+  ...deviceTypes,
+  update: PropTypes.func.isRequired,
+};

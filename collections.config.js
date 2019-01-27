@@ -8,6 +8,13 @@ import { validateEmail } from '/src/cms/utils';
 
 export const CLIENT_ID = 'omerkadmi.co.il';
 
+export const GENERAL_ASSETS = [{
+  key: 'logo',
+  label: 'Logo',
+  type: 'image',
+  required: true,
+}];
+
 export const COLLECTIONS = [
   {
     id: 'contacts',

@@ -42,3 +42,5 @@ export const entitySelector = (state, collection, route, editorFields) => {
   const getId = () => pathname(state).split(`${route}/edit/`)[1];
   return coll[getId()];
 };
+
+export const settings = state => state.get('fireStore').data.settings || {};

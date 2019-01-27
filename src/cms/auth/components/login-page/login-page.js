@@ -7,7 +7,7 @@ import Device from '/src/cms/device';
 import { UserInput } from '/src/cms/elements';
 import { Dialog } from '/src/cms/elements/dialog';
 import Auth from '/src/cms/auth';
-import { LogIn } from 'styled-icons/boxicons-regular/LogIn';
+import { Fingerprint } from 'styled-icons/boxicons-regular/Fingerprint';
 import { validateEmail } from '/src/cms/utils';
 import styles from './styles.scss';
 import gobFace from './gob-face.svg';
@@ -47,7 +47,7 @@ class LoginPage extends PureComponent {
         <Dialog
           header={(
             <Fragment >
-              <LogIn />
+              <Fingerprint />
               <div >Goblins CMS / Login</div >
             </Fragment >
           )}

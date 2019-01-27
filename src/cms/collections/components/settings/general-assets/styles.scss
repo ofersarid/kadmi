@@ -1,0 +1,28 @@
+@import '/src/cms/animations';
+
+.generalAssets {
+  margin: 50px auto;
+  background: white;
+  padding: 25px 25px 50px;
+  width: 730px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
+  animation: $slideInUp;
+}
+
+.body {
+  height: 75%;
+}
+
+.footer {
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

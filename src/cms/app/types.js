@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 export const stage = {
   ...deviceTypes,
-  isCMS: PropTypes.bool.isRequired,
   children: PropTypes.any,
 };
 

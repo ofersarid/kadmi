@@ -94,7 +94,7 @@ class UploadFile extends PureComponent {
       ) : (
         <Fragment >
           <Image />
-          <div >Select files from your computer</div >
+          <div >Select a file from your computer</div >
           <div className={styles.placeholder} >{placeholder}</div >
         </Fragment >
       );
@@ -104,7 +104,7 @@ class UploadFile extends PureComponent {
     ) : (
       <Fragment >
         <Image />
-        <div >Select files from your computer</div >
+        <div >Select a file from your computer</div >
         <div className={styles.placeholder} >{placeholder}</div >
       </Fragment >
     );
