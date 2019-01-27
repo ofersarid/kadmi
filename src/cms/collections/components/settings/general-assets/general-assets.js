@@ -39,9 +39,10 @@ class GeneralAssets extends PureComponent {
   componentDidUpdate(prevProps, prevSatate) {
     const { settings } = this.props;
     if (!isEqual(settings, prevProps.settings)) {
-      this.setState({ generalAssets: settings['general-assets'] });
+      this.setState({
+        generalAssets: settings.generalAssets,
+      });
     }
-    // this.validate();
   }
 
   onChange(change) {
@@ -87,7 +88,7 @@ class GeneralAssets extends PureComponent {
   }
 
   shouldUpdateStore() {
-    const { generalAssets } = this.props;
+    const { generalAssets } = this.props.settings;
     return !isEqual(generalAssets, this.state.generalAssets);
   }
 
@@ -95,12 +96,13 @@ class GeneralAssets extends PureComponent {
     const { update } = this.props;
     const { generalAssets } = this.state;
     if (this.shouldUpdateStore()) {
-      update(generalAssets, 'general-assets', 'settings');
+      update(generalAssets, 'generalAssets', 'settings');
     }
   }
 
   render() {
     const { generalAssets, isValid } = this.state;
+    const changeDetected = this.shouldUpdateStore();
     return (
       <div className={styles.generalAssets} >
         <div className={styles.body} >
@@ -115,6 +117,7 @@ class GeneralAssets extends PureComponent {
                 [field.key]: value,
               })}
               onValidation={isValid => this.onValidation(field.required ? isValid : true, field.key)}
+              className={styles.input}
             />
           ))}
         </div >
@@ -122,7 +125,7 @@ class GeneralAssets extends PureComponent {
           <Button
             onClick={this.submit}
             color={isValid ? 'green' : 'red'}
-            disable={!isValid}
+            disable={!isValid || !changeDetected}
           >
             <Check />
             <span >Save</span >

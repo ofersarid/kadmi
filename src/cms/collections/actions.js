@@ -48,7 +48,8 @@ const update = (event, id, collection, firestore, firebase, dispatch) => {
     return Promise.all(uploads).then(urls => {
       urls.forEach((url, index) => {
         event[files[index].key] = url;
-        deleteFile(event[files[index].key].split('?')[0].split('/').pop(), firebase);
+        deleteFile(event[`${files[index].key}-storageLocation`], firebase);
+        event[`${files[index].key}-storageLocation`] = files[index].name;
       });
 
       /* Set activity - uploadingFiles to false */
@@ -60,11 +61,11 @@ const update = (event, id, collection, firestore, firebase, dispatch) => {
   return id !== 'add' ? firestore.collection(collection).doc(id).set(event) : firestore.collection(collection).add(event);
 };
 
-export const updateEntity = (entity, id, collection) => {
+export const updateEntity = (event, id, collection) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const firebase = getFirebase();
-    return update(entity, id, collection, firestore, firebase, dispatch);
+    return update(event, id, collection, firestore, firebase, dispatch);
   };
 };
 

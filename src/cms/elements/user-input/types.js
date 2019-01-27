@@ -42,7 +42,7 @@ export const richContent = {
 
 export const file = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onValidation: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['image', 'downloadable']),
   placeholder: PropTypes.string,

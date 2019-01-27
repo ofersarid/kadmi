@@ -33,6 +33,10 @@ class UploadFile extends PureComponent {
     }
   }
 
+  componentWillUnmount() {
+    this.willUnmount = true;
+  }
+
   showValidation() {
     const { optional } = this.props;
     if (optional) return;
@@ -83,8 +87,8 @@ class UploadFile extends PureComponent {
     const { type, placeholder } = this.props;
     const { preview } = this.state;
     if (type === 'image') {
-      return preview ? (
-        <ImageAsync src={[preview]} >
+      return (preview.length && typeof preview === 'string') ? (
+        <ImageAsync src={[preview]}>
           {({ loaded, error }) => (
             <Fragment >
               <div style={{ backgroundImage: `url(${loaded ? preview : Puff})` }} className={styles.image} />

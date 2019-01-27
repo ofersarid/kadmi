@@ -63,7 +63,7 @@ const resolveComponentByType = (props) => {
     case 'downloadable':
       return (
         <UploadFile
-          value={typeof props.value === 'string' ? props.value : ''}
+          value={props.value}
           onChange={props.onChange}
           onValidation={props.onValidation}
           type={props.type}
