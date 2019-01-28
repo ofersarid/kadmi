@@ -20,7 +20,7 @@ export const CATEGORIES = [{
 }, {
   label: 'חוץ',
   bgImg: outdoor,
-  route: 'outdoor'
+  route: 'outdoors'
 }, {
   label: 'פרגולות',
   bgImg: pergolas,
@@ -28,7 +28,7 @@ export const CATEGORIES = [{
 }, {
   label: 'פנים',
   bgImg: indoor,
-  route: 'indoor'
+  route: 'indoors'
 }, {
   label: 'חידוש',
   bgImg: renewals,

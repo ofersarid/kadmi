@@ -32,7 +32,7 @@ export default (
       <Route path="home" component={Home} />
       <Route path="pergolas" component={() => <Gallery collection="pergolas" />} />
       <Route path="decks" component={() => <Gallery collection="decks" />} />
-      <Route path="indoor" component={() => <Gallery collection="indoor" />} />
+      <Route path="indoors" component={() => <Gallery collection="indoors" />} />
       <Route path="outdoors" component={() => <Gallery collection="outdoors" />} />
     </Route >
     <Redirect from="*" to="/website/home" />

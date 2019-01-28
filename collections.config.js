@@ -4,6 +4,7 @@ import { Nature } from 'styled-icons/material/Nature';
 import { Home } from 'styled-icons/icomoon/Home';
 import { DockTop } from 'styled-icons/boxicons-solid/DockTop';
 import { DockBottom } from 'styled-icons/boxicons-solid/DockBottom';
+import { MagicWand } from 'styled-icons/boxicons-solid/MagicWand';
 import { validateEmail } from '/src/cms/utils';
 
 export const CLIENT_ID = 'omerkadmi.co.il';
@@ -137,6 +138,34 @@ export const COLLECTIONS = [
     id: 'outdoors',
     name: 'Outdoors',
     icon: <Nature />,
+    filters: ['title', 'description'],
+    sortOptions: ['dateTime', 'title'],
+    fields: [{
+      key: 'title',
+      label: 'Title',
+      type: 'single-line',
+      required: true,
+      min: 1,
+      max: 40,
+    }, {
+      key: 'description',
+      label: 'Description',
+      type: 'multi-line',
+    }, {
+      key: 'pic',
+      label: 'Picture',
+      type: 'image',
+      required: true,
+    }, {
+      key: 'active',
+      label: 'Activate',
+      type: 'switch',
+      initialValue: false,
+    }],
+  }, {
+    id: 'renewals',
+    name: 'Renewals',
+    icon: <MagicWand />,
     filters: ['title', 'description'],
     sortOptions: ['dateTime', 'title'],
     fields: [{
