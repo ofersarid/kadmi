@@ -13,31 +13,44 @@ import decks from './decks.jpg';
 import renewals from './renewals.jpg';
 import Category from './category';
 
-const CATEGORIES = [{
+export const CATEGORIES = [{
   label: 'דקים',
   bgImg: decks,
+  route: 'decks'
 }, {
   label: 'חוץ',
   bgImg: outdoor,
+  route: 'outdoor'
 }, {
   label: 'פרגולות',
   bgImg: pergolas,
+  route: 'pergolas'
 }, {
   label: 'פנים',
   bgImg: indoor,
+  route: 'indoor'
 }, {
   label: 'חידוש',
   bgImg: renewals,
+  route: 'renewals'
 }];
 
 const Home = props => {
   return (
     <Fragment >
-      <div className={cx(styles.home)}>
+      <div className={cx(styles.home)} >
         <div className={cx(styles.gridContainer, styles[`gridContainer-${props.deviceType}`])} >
-          {CATEGORIES.map((item, i) => <Category key={item.label} label={item.label} bgImg={item.bgImg} id={i} />)}
+          {CATEGORIES.map((item, i) => (
+            <Category
+              key={item.route}
+              label={item.label}
+              bgImg={item.bgImg}
+              index={i}
+              route={item.route}
+            />
+          ))}
         </div >
-      </div>
+      </div >
     </Fragment >
   );
 };

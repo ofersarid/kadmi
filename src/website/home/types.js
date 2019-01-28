@@ -9,4 +9,6 @@ export const category = {
   ...deviceTypes,
   bgImg: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };

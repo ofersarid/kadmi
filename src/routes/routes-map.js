@@ -7,6 +7,7 @@ import LoginPage from '/src/cms/auth/components/login-page/login-page';
 import { WebsiteMainContainer } from '/src/website/app';
 import ReduxRoutes from '/src/routes/components/redux-routes/redux-routes';
 import { COLLECTIONS, GENERAL_ASSETS } from '/collections.config';
+import { Gallery } from '/src/website/gallery';
 import CollectionContainer from '/src/cms/collections/components/collection-container/collection-container';
 
 export default (
@@ -29,6 +30,10 @@ export default (
     <Route path="website" component={WebsiteMainContainer} >
       <IndexRedirect to="home" />
       <Route path="home" component={Home} />
+      <Route path="pergolas" component={() => <Gallery collection="pergolas" />} />
+      <Route path="decks" component={() => <Gallery collection="decks" />} />
+      <Route path="indoor" component={() => <Gallery collection="indoor" />} />
+      <Route path="outdoors" component={() => <Gallery collection="outdoors" />} />
     </Route >
     <Redirect from="*" to="/website/home" />
   </Route >
