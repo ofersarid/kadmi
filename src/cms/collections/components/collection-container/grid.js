@@ -48,7 +48,7 @@ class Grid extends PureComponent {
           <StackGrid
             columnWidth={calcColumnWidth(isMobile)}
           >
-            {list.map(item => item.id !== 'add' ? (
+            {list.map(item => (
               <div key={item.id} >
                 <CMSEntityItem
                   entity={item}
@@ -57,8 +57,7 @@ class Grid extends PureComponent {
                   fields={fields}
                 />
               </div >
-            ) : null)
-            }
+            ))}
           </StackGrid >
         </div >
         <Toaster show={markedForDelete.size > 0} >
