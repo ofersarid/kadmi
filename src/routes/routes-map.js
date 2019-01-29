@@ -34,6 +34,7 @@ export default (
       <Route path="decks" component={() => <Gallery collection="decks" />} />
       <Route path="indoors" component={() => <Gallery collection="indoors" />} />
       <Route path="outdoors" component={() => <Gallery collection="outdoors" />} />
+      <Route path="renewals" component={() => <Gallery collection="renewals" />} />
     </Route >
     <Redirect from="*" to="/website/home" />
   </Route >
