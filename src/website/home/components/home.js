@@ -12,6 +12,7 @@ import indoor from './indoor.jpg';
 import decks from './decks.jpg';
 import renewals from './renewals.jpg';
 import Category from './category';
+import { selectors as collectionSelectors } from '/src/cms/collections';
 
 export const CATEGORIES = [{
   label: 'דקים',
@@ -36,7 +37,21 @@ export const CATEGORIES = [{
 }];
 
 const Home = props => {
-  return (
+  const resolveBgImage = category => {
+    switch (category) {
+      case 'decks':
+        return props.settings.generalAssets.decksCover;
+      case 'outdoors':
+        return props.settings.generalAssets.outdoorsCover;
+      case 'pergolas':
+        return props.settings.generalAssets.pergolasCover;
+      case 'indoors':
+        return props.settings.generalAssets.indoorsCover;
+      case 'renewals':
+        return props.settings.generalAssets.renewalsCover;
+    }
+  };
+  return props.settings.generalAssets ? (
     <Fragment >
       <div className={cx(styles.home)} >
         <div className={cx(styles.gridContainer, styles[`gridContainer-${props.deviceType}`])} >
@@ -44,7 +59,7 @@ const Home = props => {
             <Category
               key={item.route}
               label={item.label}
-              bgImg={item.bgImg}
+              bgImg={resolveBgImage(item.route)}
               index={i}
               route={item.route}
             />
@@ -52,7 +67,7 @@ const Home = props => {
         </div >
       </div >
     </Fragment >
-  );
+  ) : null;
 };
 
 Home.propTypes = home;
@@ -60,7 +75,7 @@ Home.propTypes = home;
 const mapStateToProps = state => ({
   deviceType: Device.selectors.deviceType(state),
   deviceOrientation: Device.selectors.deviceOrientation(state),
-  // events: selectors.filteredOrderedList(state, 'events'),
+  settings: collectionSelectors.settings(state),
 });
 
 export default compose(

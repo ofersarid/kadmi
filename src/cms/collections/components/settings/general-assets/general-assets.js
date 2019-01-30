@@ -21,7 +21,7 @@ class GeneralAssets extends PureComponent {
     autoBind(this);
     this.state = {
       isValid: false,
-      generalAssets: this.initFields(),
+      generalAssets: props.settings.generalAssets || this.initFields(),
     };
     this.validatedFields = this.getOptionalFieldsAsList();
   }

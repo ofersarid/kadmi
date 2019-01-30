@@ -15,6 +15,36 @@ export const GENERAL_ASSETS = [{
   type: 'image',
   transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
   required: true,
+}, {
+  key: 'pergolasCover',
+  label: 'Pergolas Category Cover',
+  type: 'image',
+  transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
+  required: true,
+}, {
+  key: 'decksCover',
+  label: 'Decks Category Cover',
+  type: 'image',
+  transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
+  required: true,
+}, {
+  key: 'outdoorsCover',
+  label: 'Outdoors Category Cover',
+  type: 'image',
+  transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
+  required: true,
+}, {
+  key: 'indoorsCover',
+  label: 'Indoors Category Cover',
+  type: 'image',
+  transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
+  required: true,
+}, {
+  key: 'renewalsCover',
+  label: 'Renewals Category Cover',
+  type: 'image',
+  transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
+  required: true,
 }];
 
 export const COLLECTIONS = [
