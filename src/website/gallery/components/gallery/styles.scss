@@ -1,0 +1,81 @@
+@import '/src/cms/animations';
+
+.gallery {
+  padding: 15px;
+  height: calc(100% - 150px);
+  overflow: hidden;
+  overflow-y: visible;
+}
+
+.galleryItem {
+  background: white;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  
+  &:active {
+    :global {
+      img {
+        filter: sepia(0.3) brightness(80%);
+      }
+    }
+  }
+  
+  :global {
+    * {
+      cursor: pointer;
+    }
+    
+    img {
+      background: #f3f3f3;
+      width: 100%;
+      transition: .5s;
+      margin-top: 27px;
+    }
+    
+    label {
+      width: 100%;
+      background: #e3e3e3;
+      display: block;
+      box-sizing: border-box;
+      padding: 6px 10px;
+      color: #343434;
+      font-size: 13px;
+      position: absolute;
+      z-index: 1;
+    }
+    
+    .inner {
+      flex-direction: column;
+    }
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  :global {
+    img {
+      height: 30%;
+    }
+  }
+}
+
+:global {
+  .ril-toolbar {
+    background: transparent !important;
+  }
+  
+  .ril-toolbar__item {
+    height: 100%;
+    
+    button {
+      height: 100%;
+    }
+  }
+}

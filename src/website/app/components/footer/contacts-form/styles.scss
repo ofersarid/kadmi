@@ -1,0 +1,35 @@
+.formContainer {
+  padding: 0 15px 15px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.formContainer-desktop {
+  flex-wrap: wrap;
+  width: 620px;
+  justify-content: space-between;
+}
+
+.formContainer-mobile {
+  width: 100%;
+  flex-direction: column;
+}
+
+.sendBtn {
+  margin-top: 10px;
+  
+  :global {
+    .inner {
+      height: 44px;
+      font-size: 18px;
+    }
+  }
+}
+
+.singleLine-desktop {
+  width: 32%;
+}
+
+.singleLine-mobile {
+  width: 100%;
+}

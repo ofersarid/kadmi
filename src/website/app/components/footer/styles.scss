@@ -1,0 +1,46 @@
+@import '/src/website/dimentions';
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  background: rgba(white, 0.95);
+  overflow: hidden;
+  box-sizing: border-box;
+  transform: translateY(calc(100% - #{$nav-bar-height}));
+  transition: .35s ease-out;
+  flex-direction: column;
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.footerTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $nav-bar-height;
+  width: 100%;
+}
+
+.btn {
+  height: 100%;
+  
+  :global {
+    .inner {
+      //background: #f3f3f3;
+      height: 100%;
+    }
+  }
+}
+
+.showContactForm {
+  transform: translateY(0);
+}
+
+.mail {
+  margin: 0 !important;
+  height: 30px !important;
+  color: #7c5616;
+}

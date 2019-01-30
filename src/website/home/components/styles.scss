@@ -1,0 +1,123 @@
+@import '/src/website/dimentions';
+@import '/src/cms/animations';
+
+.home {
+  min-height: calc(100% - #{$nav-bar-height});
+  position: relative;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 'category-1 category-2 category-3' 'category-1 category-2 category-4' 'category-5 category-2 category-4';
+  height: calc(100% - #{2 * $nav-bar-height});
+  position: relative;
+  grid-gap: 15px;
+  box-sizing: border-box;
+  padding: 15px;
+  
+  & * {
+    position: relative;
+  }
+}
+
+.gridContainer-mobile {
+  grid-gap: 15px 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: 'category-1' 'category-2' 'category-3' 'category-4' 'category-5';
+}
+
+.category {
+  background: #e3e3e3;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: $fadeIn;
+  animation-duration: 1s !important;
+  overflow: hidden;
+  cursor: pointer;
+  
+  * {
+    cursor: pointer;
+  }
+  
+  @for $i from 0 to 4 {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: #{$i * 250}ms !important;
+  
+      &:hover {
+        //filter: hue-rotate(#{($i + 1) * 100}deg);
+      }
+    }
+  }
+  
+  &:hover {
+    :global {
+      .img {
+        transform: scale(1.05);
+        filter: sepia(0.3) brightness(80%);
+      }
+    }
+  }
+  
+  &:active {
+    label {
+      box-shadow: inset 10px -20px 100px rgba(0, 0, 0, 0.18), 0 0 0 30px rgba(white, 0.2);
+    }
+  }
+}
+
+.category1 {
+  grid-area: category-1;
+}
+
+.category2 {
+  grid-area: category-2;
+}
+
+.category3 {
+  grid-area: category-3;
+}
+
+.category4 {
+  grid-area: category-4;
+}
+
+.category5 {
+  grid-area: category-5;
+}
+
+.label {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 10px -20px 100px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(white, 0.62);
+  transition: .3s ease-out;
+  will-change: box-shadow;
+}
+
+.title-mobile {
+  box-shadow: none;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+  transition: 2s ease-out;
+}
