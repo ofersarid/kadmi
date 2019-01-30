@@ -10,7 +10,7 @@ import styles from './styles.scss';
 import ImageAsync from 'react-image-async';
 import Puff from '/src/cms/elements/svg-loaders/puff.svg';
 import { FileDownload } from 'styled-icons/material/FileDownload';
-import { ExternalLinkAlt } from 'styled-icons/fa-solid/ExternalLinkAlt';
+import { Link } from 'styled-icons/material/Link';
 import { SortDown } from 'styled-icons/boxicons-regular/SortDown';
 import { Hide } from 'styled-icons/boxicons-solid/Hide';
 import { Show } from 'styled-icons/boxicons-solid/Show';
@@ -129,7 +129,7 @@ class Item extends Component {
                     )}
                   </ImageAsync >;
                   break;
-                case 'downloadable':
+                case 'pdf':
                   comp = (
                     <Button
                       key={key}
@@ -154,7 +154,7 @@ class Item extends Component {
                       disable={deleteMode}
                       tip={this.getFieldProp(key, 'label')}
                     >
-                      <ExternalLinkAlt />
+                      <Link />
                       <div className={styles.link} >{entity[key]}</div >
                     </Button >
                   );

@@ -5,7 +5,7 @@ import { Home } from 'styled-icons/icomoon/Home';
 import { DockTop } from 'styled-icons/boxicons-solid/DockTop';
 import { DockBottom } from 'styled-icons/boxicons-solid/DockBottom';
 import { MagicWand } from 'styled-icons/boxicons-solid/MagicWand';
-import { validateEmail } from '/src/cms/utils';
+import { validateEmail, imageTransformer } from '/src/cms/utils';
 
 export const CLIENT_ID = 'omerkadmi.co.il';
 
@@ -13,6 +13,7 @@ export const GENERAL_ASSETS = [{
   key: 'logo',
   label: 'Logo',
   type: 'image',
+  transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
   required: true,
 }];
 
@@ -71,6 +72,7 @@ export const COLLECTIONS = [
       key: 'pic',
       label: 'Picture',
       type: 'image',
+      transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
       required: true,
     }, {
       key: 'active',
@@ -104,6 +106,7 @@ export const COLLECTIONS = [
       key: 'pic',
       label: 'Picture',
       type: 'image',
+      transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
       required: true,
     }, {
       key: 'active',
@@ -137,6 +140,7 @@ export const COLLECTIONS = [
       key: 'pic',
       label: 'Picture',
       type: 'image',
+      transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
       required: true,
     }, {
       key: 'active',
@@ -170,6 +174,7 @@ export const COLLECTIONS = [
       key: 'pic',
       label: 'Picture',
       type: 'image',
+      transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
       required: true,
     }, {
       key: 'active',
@@ -203,6 +208,7 @@ export const COLLECTIONS = [
       key: 'pic',
       label: 'Picture',
       type: 'image',
+      transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
       required: true,
     }, {
       key: 'active',

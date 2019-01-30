@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const inputTypes = ['single-line', 'multi-line', 'post', 'image', 'select',
-  'downloadable', 'date-time', 'link', 'password', 'number', 'switch', 'embed'];
+  'pdf', 'date-time', 'link', 'password', 'number', 'switch', 'embed'];
 
 export const userInput = {
   placeholder: PropTypes.string,
@@ -41,13 +41,21 @@ export const richContent = {
   validateWith: PropTypes.func,
 };
 
-export const file = {
+export const pdfFile = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onValidation: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['image', 'downloadable']),
   placeholder: PropTypes.string,
   validateWith: PropTypes.func,
+};
+
+export const imageFile = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  onValidation: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  validateWith: PropTypes.func,
+  transformer: PropTypes.func,
 };
 
 export const validationIndicator = {
@@ -67,6 +75,6 @@ export const link = {
   onChange: PropTypes.func.isRequired,
   onValidation: PropTypes.func.isRequired,
   onEnterKeyPress: PropTypes.func,
-  transformer: PropTypes.func.isRequired,
+  transformer: PropTypes.func,
   validateWith: PropTypes.func,
 };

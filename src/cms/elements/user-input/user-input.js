@@ -7,7 +7,8 @@ import styles from './styles.scss';
 import { userInput } from './types';
 import DateTime from './components/date-time/date-time';
 import Post from './components/post/post';
-import UploadFile from './components/upload-file/upload-file';
+import UploadPdf from './components/upload-pdf/upload-pdf';
+import UploadImage from './components/upload-image/upload-image';
 import SingleLine from './components/single-line/single-line';
 import MultiLine from './components/multi-line/multi-line';
 import Link from './components/link/link';
@@ -61,13 +62,23 @@ const resolveComponentByType = (props) => {
           optional={props.optional}
         />);
     case 'image':
-    case 'downloadable':
       return (
-        <UploadFile
+        <UploadImage
           value={props.value}
           onChange={props.onChange}
           onValidation={props.onValidation}
-          type={props.type}
+          placeholder={props.placeholder}
+          ref={props.getRef}
+          validateWith={props.validateWith}
+          optional={props.optional}
+          transformer={props.transformer}
+        />);
+    case 'pdf':
+      return (
+        <UploadPdf
+          value={props.value}
+          onChange={props.onChange}
+          onValidation={props.onValidation}
           placeholder={props.placeholder}
           ref={props.getRef}
           validateWith={props.validateWith}
@@ -138,7 +149,7 @@ const UserInput = props => (
     props.className,
     props.disabled && styles.disabled,
     props.stretch && styles.stretch,
-    (['multi-line', 'post', 'image', 'downloadable'].includes(props.type)) && styles.areaField)}
+    (['multi-line', 'post', 'image', 'pdf'].includes(props.type)) && styles.areaField)}
   >
     {props.label && (
       <label className={styles.label} >

@@ -15,5 +15,8 @@ module.exports = {
   },
   globals: {
     File: true,
+    Blob: true,
+    FileReader: true,
+    Image: true,
   }
 };

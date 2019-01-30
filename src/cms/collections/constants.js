@@ -189,7 +189,7 @@ export const COLLECTIONS = [
     }, {
       key: 'article',
       label: 'PDF',
-      type: 'downloadable',
+      type: 'pdf',
     }, {
       key: 'created',
       label: 'Created',
