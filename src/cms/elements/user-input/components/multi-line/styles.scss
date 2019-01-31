@@ -3,8 +3,8 @@
 .textArea {
   outline: none;
   padding: 7px 11px;
-  font-size: 15px;
-  line-height: 22px;
+  font-size: inherit !important;
+  line-height: 20px;
   box-sizing: border-box;
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.25);

@@ -4,13 +4,14 @@
 .dateTime input {
   outline: none;
   padding: 11px;
-  font-size: 15px;
+  font-size: inherit !important;
   line-height: 43px;
   box-sizing: border-box;
   height: 43px;
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 2px;
+  font-family: inherit !important;
 }
 
 .dateTime input {
