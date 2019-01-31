@@ -27,6 +27,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: 'category-1' 'category-2' 'category-3' 'category-4' 'category-5';
+  min-height: 650px;
 }
 
 .category {

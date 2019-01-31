@@ -57,3 +57,7 @@
   animation: $popIn;
   margin-left: 20px;
 }
+
+.noClick {
+  pointer-events: none;
+}

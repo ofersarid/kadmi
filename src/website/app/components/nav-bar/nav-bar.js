@@ -25,7 +25,7 @@ const NavBar = props => (
     </Button >
     <div >
       <Button
-        className={styles.btn}
+        className={cx(styles.btn, props.deviceType !== 'mobile' && styles.noClick)}
         onClick={() => {
           document.location.href = 'tel:972509013034';
           trackClick('user', 'click', 'call-button');

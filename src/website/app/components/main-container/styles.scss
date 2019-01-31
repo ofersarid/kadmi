@@ -14,6 +14,7 @@
 .stage {
   min-height: 100%;
   padding-top: $nav-bar-height;
+  padding-bottom: $nav-bar-height;
   flex-shrink: 0;
   box-sizing: border-box;
 }
