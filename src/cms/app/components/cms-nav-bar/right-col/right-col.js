@@ -5,7 +5,7 @@ import Button from '/src/cms/elements/button';
 import { rightCol } from '../../../types';
 import Device from '/src/cms/device';
 import Auth from '/src/cms/auth';
-import { LogOut } from 'styled-icons/boxicons-regular/LogOut';
+import { PowerOff } from 'styled-icons/boxicons-regular/PowerOff';
 import { hashHistory } from 'react-router';
 import styles from './styles.scss';
 import { CLIENT_ID } from '/collections.config';
@@ -35,7 +35,7 @@ const RightCol = props => (
           });
         }}
       >
-        <LogOut />
+        <PowerOff />
         {!props.isMobile && <div >Log Out</div >}
       </Button >
     </li >
