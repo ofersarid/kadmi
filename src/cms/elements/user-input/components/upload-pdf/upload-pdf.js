@@ -81,7 +81,7 @@ class UploadPdf extends PureComponent {
               <iframe src={preview} className={styles.pdfPreview} frameBorder="0" scrolling="no" />
             ) : (
               <Fragment >
-                <PictureAsPdf />
+                <PictureAsPdf className={styles.pfdIcon} />
                 <div >Select a PDF file from your computer</div >
                 <div className={styles.placeholder} >{placeholder}</div >
               </Fragment >
