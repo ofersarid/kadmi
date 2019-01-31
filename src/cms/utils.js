@@ -41,31 +41,31 @@ export const youtubeEmbedTransformer = urlStr => {
   return urlStr ? `https://www.youtube-nocookie.com/embed/${urlStr.split('/').pop().split('v=').pop()}` : '';
 };
 
-export const imageTransformer = (imgFile, options) => {
-  const dataURLToBlob = (dataURL) => {
-    const BASE64_MARKER = ';base64,';
-    if (dataURL.indexOf(BASE64_MARKER) === -1) {
-      const parts = dataURL.split(',');
-      const contentType = parts[0].split(':')[1];
-      const raw = parts[1];
-
-      return new Blob([raw], { type: contentType });
-    }
-
-    const parts = dataURL.split(BASE64_MARKER);
+const dataURLToBlob = (dataURL) => {
+  const BASE64_MARKER = ';base64,';
+  if (dataURL.indexOf(BASE64_MARKER) === -1) {
+    const parts = dataURL.split(',');
     const contentType = parts[0].split(':')[1];
-    const raw = window.atob(parts[1]);
-    const rawLength = raw.length;
+    const raw = parts[1];
 
-    const uInt8Array = new Uint8Array(rawLength);
+    return new Blob([raw], { type: contentType });
+  }
 
-    for (let i = 0; i < rawLength; ++i) {
-      uInt8Array[i] = raw.charCodeAt(i);
-    }
+  const parts = dataURL.split(BASE64_MARKER);
+  const contentType = parts[0].split(':')[1];
+  const raw = window.atob(parts[1]);
+  const rawLength = raw.length;
 
-    return new Blob([uInt8Array], { type: contentType });
-  };
+  const uInt8Array = new Uint8Array(rawLength);
 
+  for (let i = 0; i < rawLength; ++i) {
+    uInt8Array[i] = raw.charCodeAt(i);
+  }
+
+  return new Blob([uInt8Array], { type: contentType });
+};
+
+export const imageTransformer = (imgFile, options) => {
   return new Promise(resolve => {
     // Load the image
     const reader = new FileReader();
@@ -94,6 +94,35 @@ export const imageTransformer = (imgFile, options) => {
         const dataUrl = canvas.toDataURL(imgFile.type);
         const resizedImage = dataURLToBlob(dataUrl);
         resolve(new File([resizedImage], imgFile.name, {
+          type: imgFile.type,
+        }));
+      };
+      image.src = readerEvent.target.result;
+    };
+    reader.readAsDataURL(imgFile);
+  });
+};
+
+export const rotateImage90Deg = imgFile => {
+  return new Promise(resolve => {
+    // Load the image
+    const reader = new FileReader();
+    reader.onload = (readerEvent) => {
+      const image = new Image();
+      image.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = image.height;
+        canvas.height = image.width;
+        const ctx = canvas.getContext('2d');
+        ctx.save();
+        const angle = 90 * Math.PI / 180;
+        ctx.translate(Math.abs(image.width / 2 * Math.cos(angle) + image.height / 2 * Math.sin(angle)), Math.abs(image.height / 2 * Math.cos(angle) + image.width / 2 * Math.sin(angle)));
+        ctx.rotate(angle);
+        ctx.translate(-image.width / 2, -image.height / 2);
+        ctx.drawImage(image, 0, 0);
+        ctx.restore();
+        const dataUrl = canvas.toDataURL(imgFile.type);
+        resolve(new File([dataURLToBlob(dataUrl)], imgFile.name, {
           type: imgFile.type,
         }));
       };

@@ -6,10 +6,12 @@ import { imageFile } from '../../types';
 import styles from './styles.scss';
 import Button from '/src/cms/elements/button';
 import { Image } from 'styled-icons/material/Image';
+import { Rotate90DegreesCcw } from 'styled-icons/material/Rotate90DegreesCcw';
 // import Toaster from '/src/cms/elements/toaster';
 // import prettyBytes from 'pretty-bytes';
 import Puff from '/src/cms/elements/svg-loaders/puff.svg';
 import noop from 'lodash/noop';
+import { rotateImage90Deg } from '/src/cms/utils';
 import ValidationIndicator from '../validation-indicator/validation-indicator';
 
 class UploadImage extends PureComponent {
@@ -44,6 +46,7 @@ class UploadImage extends PureComponent {
   }
 
   handleChange(file) {
+    this.file = file;
     const { onChange, transformer } = this.props;
     if (file) {
       // const fileToBig = file.size > 2000000;
@@ -84,6 +87,21 @@ class UploadImage extends PureComponent {
     return (
       <div className={styles.imageUpload} >
         <div className={cx(styles.imagePreviewContainer, showValidation && styles.removeRightBorder)} >
+          <ul className={styles.tools} >
+            <li >
+              <Button
+                justIcon
+                disable={!this.file}
+                onClick={() => {
+                  rotateImage90Deg(this.file)
+                    .then(resp => this.handleChange(resp));
+                }}
+                tip="Rotate"
+              >
+                <Rotate90DegreesCcw />
+              </Button >
+            </li >
+          </ul >
           <Button
             onClick={this.handleClick}
             className={styles.button}
