@@ -4,37 +4,11 @@ import Device from '/src/cms/device/index';
 import { firestoreConnect } from 'react-redux-firebase';
 import cx from 'classnames';
 import { compose } from 'redux';
+import { selectors as collectionSelectors } from '/src/cms/collections';
+import { CATEGORIES } from '/src/website/constants';
 import { home } from '../types';
 import styles from './styles.scss';
-import pergolas from './pergolas.jpg';
-import outdoor from './outdoor.jpg';
-import indoor from './indoor.jpg';
-import decks from './decks.jpg';
-import renewals from './renewals.jpg';
 import Category from './category';
-import { selectors as collectionSelectors } from '/src/cms/collections';
-
-export const CATEGORIES = [{
-  label: 'דקים',
-  bgImg: decks,
-  route: 'decks'
-}, {
-  label: 'חוץ',
-  bgImg: outdoor,
-  route: 'outdoors'
-}, {
-  label: 'פרגולות',
-  bgImg: pergolas,
-  route: 'pergolas'
-}, {
-  label: 'פנים',
-  bgImg: indoor,
-  route: 'indoors'
-}, {
-  label: 'חידוש',
-  bgImg: renewals,
-  route: 'renewals'
-}];
 
 const Home = props => {
   const resolveBgImage = category => {

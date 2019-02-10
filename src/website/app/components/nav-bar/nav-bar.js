@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Device from '/src/cms/device';
 import styles from './styles.scss';
 import { Call } from 'styled-icons/material/Call';
+import { MoreVert } from 'styled-icons/material/MoreVert';
 import { Button } from '/src/cms/elements';
 import { trackClick } from '/src/analytics';
 import { hashHistory } from 'react-router';
@@ -11,7 +12,16 @@ import { navBar } from '../../types';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { selectors as collectionSelectors } from '/src/cms/collections';
+import { CATEGORIES } from '/src/website/constants';
 import logoText from './logoText.svg';
+
+const DropMenu = (
+  <ul>
+    {CATEGORIES.map(cat => (
+      <li key={cat.label}>{cat.label}</li>
+    ))}
+  </ul>
+);
 
 const NavBar = props => (
   <div className={cx(styles.navBar)} >
@@ -34,6 +44,12 @@ const NavBar = props => (
         <Call className={cx(styles.phone, styles[`phone-${props.deviceType}`])} />
         <div className={cx(styles[`number-${props.deviceType}`])} >050-901-3034</div >
       </Button >
+      <Button
+        justIcon
+        menu={DropMenu}
+      >
+        <MoreVert />
+      </Button>
     </div >
   </div >
 );

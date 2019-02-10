@@ -14,6 +14,7 @@ const CollectionContainer = props => (
     sortOptions={props.sortOptions}
     icon={props.icon}
     fields={props.fields}
+    downloadCsv={props.downloadCsv}
   >
     {props.pathname.split(props.id)[1] && <CollectionEditor {...props} />}
   </Grid >

@@ -37,25 +37,27 @@ const PageList = props => (
         );
       })}
     </ul >
-    {GENERAL_ASSETS.length > 0 && (
-      <Fragment>
-        <div className={styles.divider} />
-        <Button
-          linkTo={props.pathname.match('/general-assets') ? null : '/cms/general-assets'}
-          className={`waves-color ${styles.navButton}`}
-          textColor={props.pathname.match('/general-assets') ? 'green' : null}
-          stretch
-        >
-          <Tooltip content={!props.sideNavOpen ? 'General Assets' : null} position="right" >
-            <Gem />
-          </Tooltip >
-          <div >General</div >
-          {props.pathname.match('/general-assets') && (
-            <div className={styles.indicator} />
-          )}
-        </Button >
-      </Fragment>
-    )}
+    <div className={styles.divider} />
+    <ul className={styles.pageList} >
+      {GENERAL_ASSETS.length > 0 && (
+        <li >
+          <Button
+            linkTo={props.pathname.match('/general-assets') ? null : '/cms/general-assets'}
+            className={`waves-color ${styles.navButton}`}
+            textColor={props.pathname.match('/general-assets') ? 'green' : null}
+            stretch
+          >
+            <Tooltip content={!props.sideNavOpen ? 'General Assets' : null} position="right" >
+              <Gem />
+            </Tooltip >
+            <div >General</div >
+            {props.pathname.match('/general-assets') && (
+              <div className={styles.indicator} />
+            )}
+          </Button >
+        </li >
+      )}
+    </ul >
   </Fragment >
 );
 

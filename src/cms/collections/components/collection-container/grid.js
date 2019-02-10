@@ -32,13 +32,14 @@ class Grid extends PureComponent {
   render() {
     const {
       route, toggleDeleteMode, filters, sortOptions, isMobile, list, icon,
-      fields, markedForDelete, deleteEntities, children, collection,
+      fields, markedForDelete, deleteEntities, children, collection, downloadCsv,
     } = this.props;
     return (
       <Fragment >
         <Toolbar
           addRoute={`${route}/add`}
           onClickDelete={toggleDeleteMode}
+          onClickDownload={() => downloadCsv(list)}
           filters={filters}
           sortOptions={sortOptions}
           collection={collection}

@@ -34,6 +34,7 @@ export const collectionContainer = {
   filters: PropTypes.arrayOf(PropTypes.string),
   sortOptions: PropTypes.arrayOf(PropTypes.string),
   fields: PropTypes.arrayOf(field).isRequired,
+  downloadCsv: PropTypes.func,
 };
 
 export const cmsEntityGrid = {
@@ -52,6 +53,7 @@ export const cmsEntityGrid = {
   list: PropTypes.arrayOf(PropTypes.object),
   fields: PropTypes.arrayOf(field).isRequired,
   sideNavOpen: PropTypes.bool.isRequired,
+  downloadCsv: PropTypes.func,
 };
 
 export const entityItem = {

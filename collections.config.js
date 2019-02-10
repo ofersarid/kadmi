@@ -5,7 +5,7 @@ import { Home } from 'styled-icons/icomoon/Home';
 import { DockTop } from 'styled-icons/boxicons-solid/DockTop';
 import { DockBottom } from 'styled-icons/boxicons-solid/DockBottom';
 import { MagicWand } from 'styled-icons/boxicons-solid/MagicWand';
-import { validateEmail, imageTransformer } from '/src/cms/utils';
+import { validateEmail, imageTransformer, exportToCsv } from '/src/cms/utils';
 
 export const CLIENT_ID = 'omerkadmi.co.il';
 
@@ -54,6 +54,14 @@ export const COLLECTIONS = [
     icon: <Contact />,
     filters: ['title'],
     sortOptions: ['title', 'created'],
+    downloadCsv: list => {
+      const data = list.reduce((reduced, item) => {
+        const name = item.title.split(' ');
+        reduced.push([item.email, name[0] || '', name[1] || '']);
+        return reduced;
+      }, [['Email Address', 'First Name', 'Last Name']]);
+      exportToCsv('contacts', data);
+    },
     fields: [{
       key: 'title',
       label: 'Name',

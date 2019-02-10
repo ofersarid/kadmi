@@ -20,3 +20,7 @@ export const deleteButton = {
   onClickDelete: PropTypes.func.isRequired,
   deleteMode: PropTypes.bool.isRequired,
 };
+
+export const downloadCsv = {
+  onClickDownload: PropTypes.func.isRequired,
+};

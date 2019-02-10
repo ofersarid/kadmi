@@ -12,7 +12,7 @@ import { CLIENT_ID } from '/collections.config';
 
 const RightCol = props => (
   <ul className={styles.rightCol} >
-    <li className={styles.clientId} >Client-Id: {CLIENT_ID}</li >
+    {!props.isMobile && <li className={styles.clientId} >Client-Id: {CLIENT_ID}</li >}
     <li >
       <Button
         color="black-invert"
