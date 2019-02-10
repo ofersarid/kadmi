@@ -1,12 +1,21 @@
 import React, { Fragment, PureComponent } from 'react';
-import { connect } from 'react-redux';
 import autoBind from 'auto-bind';
 import cx from 'classnames';
 import { hashHistory } from 'react-router';
 import Puff from '/src/cms/elements/svg-loaders/puff.svg';
 import Tooltip from '/src/cms/elements/tooltip/tooltip';
+import { store } from '/src';
 import styles from './styles.scss';
 import { button } from './types';
+
+const colors = [
+  'green',
+  'black',
+  'black-invert',
+  'white',
+  'red',
+  'yellow'
+];
 
 class Button extends PureComponent {
   constructor(props) {
@@ -44,11 +53,11 @@ class Button extends PureComponent {
   render() {
     const {
       className, textColor, color, children, disable, stretch, tip, maxWidth,
-      noAnimation, justIcon, customBgColor,
+      noAnimation, justIcon, interactive, tipAnimation, getRef,
     } = this.props;
     const { working } = this.state;
     return (
-      <Tooltip content={tip} >
+      <Tooltip content={tip} interactive={interactive} store={store} animation={tipAnimation} >
         <div
           className={cx(
             'ripple',
@@ -63,6 +72,7 @@ class Button extends PureComponent {
           style={{
             maxWidth,
           }}
+          ref={getRef}
           onClick={this.handleClick}
         >
           {working && <img className={styles.activityIndicator} src={Puff} />}
@@ -70,13 +80,14 @@ class Button extends PureComponent {
             className={cx(
               'inner',
               styles.inner,
-              styles[`text-${textColor}`],
-              styles[color],
+              colors.includes(textColor) && styles[`text-${textColor}`],
+              colors.includes(color) && styles[color],
               working && styles.hideChildren,
               justIcon && styles.justIcon,
             )}
             style={{
-              backgroundColor: customBgColor,
+              backgroundColor: !colors.includes(color) ? color : undefined,
+              color: !colors.includes(textColor) ? textColor : undefined,
             }}
           >
             <Fragment >
@@ -96,8 +107,7 @@ Button.defaultProps = {
   disable: false,
   stretch: false,
   justIcon: false,
+  interactive: false,
 };
 
-const mapStateToProps = state => ({}); // eslint-disable-line
-
-export default connect(mapStateToProps, {})(Button);
+export default Button;

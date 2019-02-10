@@ -11,7 +11,7 @@ const Category = props => {
   return (
     <div
       className={cx(styles.category, styles[`category${props.index}`])}
-      onClick={() => hashHistory.push(`website/${props.route}`)}
+      onClick={() => hashHistory.push(props.route)}
     >
       <div className={cx('img', styles.img)} style={{ backgroundImage: `url(${props.bgImg})` }}/>
       <label className={cx(styles.label, styles[`title-${props.deviceType}`])}>{props.label}</label>

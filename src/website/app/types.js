@@ -18,3 +18,7 @@ export const contactForm = {
   createContact: PropTypes.func.isRequired,
   onSend: PropTypes.func.isRequired,
 };
+
+export const dropMenu = {
+  pathname: PropTypes.string.isRequired,
+};

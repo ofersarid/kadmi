@@ -1,22 +1,13 @@
 import PropTypes from 'prop-types';
-
-export const colors = [
-  'green',
-  'black',
-  'black-invert',
-  'white',
-  'red',
-  'yellow'
-];
+import { tipAnimations } from '../tooltip/types';
 
 export const button = {
   children: PropTypes.any,
   className: PropTypes.string,
   onClick: PropTypes.func,
   linkTo: PropTypes.string,
-  color: PropTypes.oneOf(colors),
-  customBgColor: PropTypes.string,
-  textColor: PropTypes.oneOf(colors),
+  color: PropTypes.string,
+  textColor: PropTypes.string,
   disable: PropTypes.bool,
   stretch: PropTypes.bool,
   invert: PropTypes.bool,
@@ -24,4 +15,7 @@ export const button = {
   tip: PropTypes.node,
   maxWidth: PropTypes.number,
   justIcon: PropTypes.bool,
+  interactive: PropTypes.bool,
+  tipAnimation: PropTypes.oneOf(tipAnimations),
+  getRef: PropTypes.object,
 };

@@ -13,15 +13,15 @@ import Category from './category';
 const Home = props => {
   const resolveBgImage = category => {
     switch (category) {
-      case 'decks':
+      case '/website/decks':
         return props.settings.generalAssets.decksCover;
-      case 'outdoors':
+      case '/website/outdoors':
         return props.settings.generalAssets.outdoorsCover;
-      case 'pergolas':
+      case '/website/pergolas':
         return props.settings.generalAssets.pergolasCover;
-      case 'indoors':
+      case '/website/indoors':
         return props.settings.generalAssets.indoorsCover;
-      case 'renewals':
+      case '/website/renewals':
         return props.settings.generalAssets.renewalsCover;
     }
   };

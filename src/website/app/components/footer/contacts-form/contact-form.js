@@ -108,7 +108,7 @@ class ContactForm extends PureComponent {
         />
         <Button
           stretch
-          customBgColor="#cac664"
+          color="#cac664"
           textColor="white"
           className={styles.sendBtn}
           disable={!isValid}

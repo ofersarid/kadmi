@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 import autoBind from 'auto-bind';
-import tippy from 'tippy.js';
+import { Tooltip as Tippy } from 'react-tippy';
+import Routes from '/src/routes';
 import styles from './styles.scss';
 import types from './types';
 import Device from '../../device';
@@ -11,41 +12,30 @@ class Tooltip extends PureComponent {
   constructor(props) {
     super(props);
     autoBind(this);
-    this.ref = React.createRef();
-  }
-
-  componentDidMount() {
-    this.initTip();
-  }
-
-  componentDidUpdate() {
-    this.initTip();
-  }
-
-  initTip() {
-    const { isMobile, content, position } = this.props;
-    if (!isMobile && this.ref.current) {
-      tippy(this.ref.current, {
-        content: `<div class="${styles.content}">${content}</div>`,
-        animateFill: false,
-        arrow: true,
-        delay: [500, 0],
-        placement: position,
-      });
-      this.ref.current.removeAttribute('tabindex'); // make none focusable
-    }
   }
 
   render() {
-    const { children, content, className } = this.props;
+    const { children, content, className, interactive, animation, position, isMobile } = this.props;
     return content ? (
-      <div
+      <Tippy
         className={cx(className)}
-        ref={this.ref}
+        sticky
         tabIndex={null}
+        html={<div className={styles.content} >{content}</div >}
+        animateFill={false}
+        arrow={true}
+        delay={[interactive ? 0 : 500, 0]}
+        animation={animation}
+        position={position}
+        interactive={interactive}
+        touchHold={isMobile}
+        trigger={interactive ? 'click' : 'mouseenter'}
+        style={{
+          display: 'inherit',
+        }}
       >
         {children}
-      </div >
+      </Tippy >
     ) : children;
   }
 }
@@ -54,10 +44,13 @@ Tooltip.propTypes = types;
 
 Tooltip.defaultProps = {
   position: 'top',
+  interactive: false,
+  animation: 'shift',
 };
 
 const mapStateToProps = state => ({
   isMobile: Device.selectors.isMobile(state),
+  pathname: Routes.selectors.pathname(state),
 });
 
 export default connect(mapStateToProps, {})(Tooltip);

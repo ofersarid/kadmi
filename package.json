@@ -50,7 +50,6 @@
     "styled-components": "^4.1.2",
     "styled-icons": "^6.6.0",
     "styles": "^0.2.1",
-    "tippy.js": "^3.4.1",
     "uuid": "^3.3.2"
   },
   "name": "goblins-spawn",

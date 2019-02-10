@@ -68,3 +68,30 @@
 .noClick {
   pointer-events: none;
 }
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  margin: 0;
+  padding: 5px 0 0 0;
+  
+  :global {
+    li {
+      display: block;
+    }
+    
+    .inner {
+      justify-content: flex-end;
+      font-family: Arial;
+      font-size: 18px;
+      line-height: 18px;
+    }
+    
+    svg {
+      margin: 0 0 0 10px;
+    }
+  }
+}

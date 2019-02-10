@@ -14,7 +14,7 @@ import SideNav from '../side-nav/side-nav';
 import styles from './styles.scss';
 import 'react-quill/dist/quill.snow.css';
 import 'react-image-crop/lib/ReactCrop.scss';
-import 'tippy.js/dist/tippy.css';
+import 'react-tippy/dist/tippy.css';
 
 const MainContainer = props => props.isLoaded ? (
   <AuthRedirect >
