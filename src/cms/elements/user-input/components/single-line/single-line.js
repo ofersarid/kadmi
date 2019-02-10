@@ -81,7 +81,7 @@ class SingleLine extends PureComponent {
             value={value}
             validateWith={validateWith}
             numeric={onlyNumbers}
-            rtl
+            rtl={rtl}
           />
         )}
       </div >

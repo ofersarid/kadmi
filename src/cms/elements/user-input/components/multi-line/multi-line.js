@@ -66,6 +66,7 @@ class MultiLine extends PureComponent {
             onValidation={onValidation}
             value={value}
             validateWith={validateWith}
+            rtl={rtl}
           />
         )}
       </div >

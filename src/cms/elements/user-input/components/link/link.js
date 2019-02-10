@@ -44,7 +44,7 @@ class Link extends PureComponent {
   }
 
   render() {
-    const { placeholder, onEnterKeyPress, value, max, min, validateWith, optional } = this.props;
+    const { placeholder, onEnterKeyPress, value, max, min, validateWith, optional, rtl } = this.props;
     const { showValidation } = this.state;
     const isEmail = validateEmail(value);
     return (
@@ -76,6 +76,7 @@ class Link extends PureComponent {
             onValidation={this.onValidation}
             value={value}
             validateWith={validateWith}
+            rtl={rtl}
           />
         )}
       </div >
@@ -86,7 +87,7 @@ class Link extends PureComponent {
 Link.propTypes = link;
 
 Link.defaultProps = {
-  transformURL: value => value,
+  rtl: false,
 };
 
 Link.defaultProps = {

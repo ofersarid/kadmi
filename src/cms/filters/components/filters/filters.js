@@ -1,5 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 import noop from 'lodash/noop';
 import Device from '/src/cms/device';
 import autoBind from 'auto-bind';
@@ -67,7 +68,7 @@ class Filters extends PureComponent {
   }
 
   render() {
-    const { filters, orderBy, updateOrder, isMobile, getOptionsForFilter, fields } = this.props;
+    const { filters, orderBy, updateOrder, isMobile, getOptionsForFilter, fields, deviceType } = this.props;
     return (
       <Fragment >
         <div className={styles.filters} >
@@ -75,7 +76,7 @@ class Filters extends PureComponent {
             <Tooltip key={fltr} className={styles.flexRow} content={`Filter By ${toCapitalizedWords(fltr)}`} >
               <Filter className={styles.icon} />
               <Select
-                className={styles.select}
+                className={cx(styles.select)}
                 options={getOptionsForFilter(fltr)}
                 placeholder={this.resolvePlaceholder(fltr)}
                 onInputChange={value => fields.find(f => f.key === fltr).type === 'switch' ? noop() : this.updateState(value, fltr)}
@@ -88,7 +89,7 @@ class Filters extends PureComponent {
             </Tooltip >
           ))}
           <Tooltip content="Sort By" className={styles.flexRow} >
-            <SortDown className={styles.icon} />
+            <SortDown className={cx(styles.icon, styles[`icon-${deviceType}`])} />
             <Select
               className={styles.select}
               options={this.composeOptions()}
@@ -112,6 +113,7 @@ Filters.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   isMobile: Device.selectors.isMobile(state),
+  deviceType: Device.selectors.deviceType(state),
   orderBy: orderBy(state),
   getOptionsForFilter: key => getOptionsForFilter(state, ownProps.collection, key)
 });

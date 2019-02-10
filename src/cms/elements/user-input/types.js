@@ -77,4 +77,5 @@ export const link = {
   onEnterKeyPress: PropTypes.func,
   transformer: PropTypes.func,
   validateWith: PropTypes.func,
+  rtl: PropTypes.bool,
 };
