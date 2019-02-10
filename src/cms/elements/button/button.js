@@ -42,7 +42,10 @@ class Button extends PureComponent {
   }
 
   render() {
-    const { className, textColor, color, children, disable, stretch, tip, maxWidth, noAnimation, justIcon } = this.props;
+    const {
+      className, textColor, color, children, disable, stretch, tip, maxWidth,
+      noAnimation, justIcon, customBgColor,
+    } = this.props;
     const { working } = this.state;
     return (
       <Tooltip content={tip} >
@@ -72,6 +75,9 @@ class Button extends PureComponent {
               working && styles.hideChildren,
               justIcon && styles.justIcon,
             )}
+            style={{
+              backgroundColor: customBgColor,
+            }}
           >
             <Fragment >
               {children}

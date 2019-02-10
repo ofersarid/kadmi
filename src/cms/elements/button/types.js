@@ -15,6 +15,7 @@ export const button = {
   onClick: PropTypes.func,
   linkTo: PropTypes.string,
   color: PropTypes.oneOf(colors),
+  customBgColor: PropTypes.string,
   textColor: PropTypes.oneOf(colors),
   disable: PropTypes.bool,
   stretch: PropTypes.bool,

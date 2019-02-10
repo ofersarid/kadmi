@@ -19,7 +19,7 @@ const NavBar = props => (
       {props.generalAssets && (
         <Fragment >
           <img src={props.generalAssets.logo} className={styles.logoImg} />
-          <img src={logoText} className={styles.logoText} />
+          <img src={logoText} className={cx(styles.logoText, styles[`logoText-${props.deviceType}`])} />
         </Fragment >
       )}
     </Button >

@@ -47,15 +47,20 @@
 }
 
 .logoText {
-  height: 29px;
+  height: 20px;
   animation: $popIn;
+  margin-top: 5px;
+}
+
+.logoText-mobile {
+  height: 16px;
 }
 
 .logoImg {
   height: 42px;
   width: 42px;
   animation: $popIn;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .noClick {

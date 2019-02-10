@@ -18,3 +18,13 @@ ul {
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
 }
+
+$waves-color: #cac664;
+
+:global(.waves-effect.waves-color .waves-ripple) {
+  background: rgba($waves-color, 0.4);
+  background: -webkit-radial-gradient(rgba($waves-color, .2) 0, rgba($waves-color, .3) 40%, rgba($waves-color, .4) 50%, rgba($waves-color, .5) 60%, rgba($waves-color, 0) 70%);
+  background: -o-radial-gradient(rgba($waves-color, .2) 0, rgba($waves-color, .3) 40%, rgba($waves-color, .4) 50%, rgba($waves-color, .5) 60%, rgba($waves-color, 0) 70%);
+  background: -moz-radial-gradient(rgba($waves-color, .2) 0, rgba($waves-color, .3) 40%, rgba($waves-color, .4) 50%, rgba($waves-color, .5) 60%, rgba($waves-color, 0) 70%);
+  background: radial-gradient(rgba($waves-color, .2) 0, rgba($waves-color, .3) 40%, rgba($waves-color, .4) 50%, rgba($waves-color, .5) 60%, rgba($waves-color, 0) 70%)
+}
