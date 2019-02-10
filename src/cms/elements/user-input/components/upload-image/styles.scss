@@ -40,28 +40,24 @@
       height: 100%;
       justify-content: center;
       flex-direction: column;
+      text-align: center;
     }
   }
 }
 
-.spaceRight {
-  margin-right: 20px;
-  
-  h3 {
-    margin: 0;
-    display: inline;
-  }
-}
+//.spaceRight {
+//  margin-right: 20px;
+//
+//  h3 {
+//    margin: 0;
+//    display: inline;
+//  }
+//}
 
 .placeholder {
   color: $placeholderColor;
   font-style: italic;
-  margin-left: 15px;
-  
-  &:before {
-    content: '\2014';
-    margin-right: 15px;
-  }
+  margin-top: 15px;
 }
 
 .removeRightBorder {
@@ -88,4 +84,10 @@
       padding: 5px;
     }
   }
+}
+
+.imageIcon {
+  height: 55px !important;
+  opacity: 0.5;
+  margin: 0 0 15px;
 }
