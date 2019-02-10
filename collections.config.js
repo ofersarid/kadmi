@@ -60,7 +60,7 @@ export const COLLECTIONS = [
       type: 'single-line',
       required: true,
       min: 1,
-      max: 40,
+      max: 100,
     }, {
       key: 'phone',
       label: 'Phone',
@@ -93,7 +93,7 @@ export const COLLECTIONS = [
       type: 'single-line',
       required: true,
       min: 1,
-      max: 40,
+      max: 100,
     }, {
       key: 'description',
       label: 'Description',
@@ -127,7 +127,7 @@ export const COLLECTIONS = [
       type: 'single-line',
       required: true,
       min: 1,
-      max: 40,
+      max: 100,
     }, {
       key: 'description',
       label: 'Description',
@@ -161,7 +161,7 @@ export const COLLECTIONS = [
       type: 'single-line',
       required: true,
       min: 1,
-      max: 40,
+      max: 100,
     }, {
       key: 'description',
       label: 'Description',
@@ -195,7 +195,7 @@ export const COLLECTIONS = [
       type: 'single-line',
       required: true,
       min: 1,
-      max: 40,
+      max: 100,
     }, {
       key: 'description',
       label: 'Description',
@@ -229,7 +229,7 @@ export const COLLECTIONS = [
       type: 'single-line',
       required: true,
       min: 1,
-      max: 40,
+      max: 100,
     }, {
       key: 'description',
       label: 'Description',
