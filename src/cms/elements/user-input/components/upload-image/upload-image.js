@@ -116,7 +116,7 @@ class UploadImage extends PureComponent {
               </ImageAsync >
             ) : (
               <Fragment >
-                <Image />
+                <Image className={styles.imageIcon}/>
                 <div >Select an image file from your computer</div >
                 <div className={styles.placeholder} >{placeholder}</div >
               </Fragment >
