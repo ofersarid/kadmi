@@ -59,6 +59,7 @@ class NavBar extends PureComponent {
         <div className={styles.left} >
           <Button
             className={cx(styles.btn, deviceType !== 'mobile' && styles.noClick)}
+            justIcon
             onClick={() => {
               document.location.href = 'tel:972509013034';
               trackClick('user', 'click', 'call-button');
@@ -69,6 +70,7 @@ class NavBar extends PureComponent {
           </Button >
           <Button
             justIcon
+            className={styles.more}
             tip={<DropMenu pathname={pathname} menuBtn={this.menuBtn} />}
             tipAnimation="perspective"
             interactive
