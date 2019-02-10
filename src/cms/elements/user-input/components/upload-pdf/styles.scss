@@ -15,15 +15,6 @@
   box-sizing: border-box;
 }
 
-.image {
-  width: 100%;
-  height: calc(100% - 22px);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: #f1f1f1;
-}
-
 .fileInput {
   display: none;
 }
@@ -31,14 +22,16 @@
 .button {
   width: 100%;
   height: 100%;
-}
-
-.spaceRight {
-  margin-right: 20px;
   
-  h3 {
-    margin: 0;
-    display: inline;
+  :global {
+    .inner {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
   }
 }
 
@@ -50,12 +43,7 @@
 .placeholder {
   color: $placeholderColor;
   font-style: italic;
-  margin-left: 15px;
-  
-  &:before {
-    content: '\2014';
-    margin-right: 15px;
-  }
+  margin-top: 15px;
 }
 
 .removeRightBorder {
@@ -65,4 +53,10 @@
 
 .hide {
 display: none;
+}
+
+.pfdIcon {
+  height: 55px !important;
+  opacity: 0.5;
+  margin: 0 0 15px;
 }
