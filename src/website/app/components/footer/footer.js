@@ -17,7 +17,7 @@ class Footer extends PureComponent {
     autoBind(this);
     this.state = {
       showContactForm: false,
-      showSuccess: true,
+      showSuccess: false,
       showSending: false,
     };
   }
