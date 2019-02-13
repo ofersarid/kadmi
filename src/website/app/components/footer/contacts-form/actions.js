@@ -7,7 +7,7 @@ export const createContact = (name, email, message, phone) => {
     const contacts = firestore.collection('contacts');
 
     /* Store Contact */
-    contacts.where('email', '==', email).get().then(snapshot => {
+    return contacts.where('email', '==', email).get().then(snapshot => {
       const id = snapshot.docs[0] ? snapshot.docs[0].id : null;
       if (id) {
         return contacts.doc(id).update({
@@ -20,16 +20,16 @@ export const createContact = (name, email, message, phone) => {
         title: name,
         email,
         phone,
+      }).then(() => {
+        /* Send email to desk */
+        const deskParams = {
+          'email': email,
+          'from_name': name,
+          'message_html': message,
+          'phone': phone,
+        };
+        return send(EMAIL_JS.SERVICE_ID, EMAIL_JS.TEMPLATES.CONTACT, deskParams, EMAIL_JS.USER_ID);
       });
     });
-
-    /* Send email to desk */
-    const deskParams = {
-      'email': email,
-      'from_name': name,
-      'message_html': message,
-      'phone': phone,
-    };
-    return send(EMAIL_JS.SERVICE_ID, EMAIL_JS.TEMPLATES.CONTACT, deskParams, EMAIL_JS.USER_ID);
   };
 };

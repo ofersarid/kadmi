@@ -17,7 +17,7 @@ class Footer extends PureComponent {
     autoBind(this);
     this.state = {
       showContactForm: false,
-      showSuccess: false,
+      showSuccess: true,
       showSending: false,
     };
   }
@@ -52,7 +52,7 @@ class Footer extends PureComponent {
     const { showContactForm, showSuccess, showSending } = this.state;
     return (
       <div className={cx(styles.footer, showContactForm && styles.showContactForm)} >
-        <div className={styles.footerTop}>
+        <div className={styles.footerTop} >
           <Button
             className={styles.btn}
             onClick={this.toggleContactForm}
@@ -62,10 +62,10 @@ class Footer extends PureComponent {
           </Button >
         </div >
         <ContactForm onSend={this.showSending} onSuccess={this.showSuccess} />
-        <Toaster show={showSending} type="warning" >
+        <Toaster show={showSending} type="warning" className={styles.toaster} >
           שולח...
         </Toaster >
-        <Toaster show={showSuccess} onClick={this.hideToast} type="success" >
+        <Toaster show={showSuccess} onClick={this.hideToast} type="success" className={styles.toaster} >
           קבלתי תודה !
         </Toaster >
       </div >
