@@ -33,7 +33,7 @@ class Editor extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevSatate) {
-    const { entity } = this.props;
+    const { entity } = this.state;
     if (!isEqual(entity, prevProps.entity)) {
       this.setState({ entity });
       this.validate();
