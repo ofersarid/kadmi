@@ -98,7 +98,7 @@ class Gallery extends PureComponent {
                   });
                 }}
               >
-                <label >{item.title}</label >
+                {item.title ? <label >{item.title}</label > : null}
                 <img src={item.pic} />
               </div >
             ))}

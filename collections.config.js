@@ -99,7 +99,7 @@ export const COLLECTIONS = [
       key: 'title',
       label: 'Title',
       type: 'single-line',
-      required: true,
+      required: false,
       min: 1,
       max: 100,
     }, {
@@ -133,7 +133,7 @@ export const COLLECTIONS = [
       key: 'title',
       label: 'Title',
       type: 'single-line',
-      required: true,
+      required: false,
       min: 1,
       max: 100,
     }, {
@@ -167,7 +167,7 @@ export const COLLECTIONS = [
       key: 'title',
       label: 'Title',
       type: 'single-line',
-      required: true,
+      required: false,
       min: 1,
       max: 100,
     }, {
@@ -201,7 +201,7 @@ export const COLLECTIONS = [
       key: 'title',
       label: 'Title',
       type: 'single-line',
-      required: true,
+      required: false,
       min: 1,
       max: 100,
     }, {
@@ -235,7 +235,7 @@ export const COLLECTIONS = [
       key: 'title',
       label: 'Title',
       type: 'single-line',
-      required: true,
+      required: false,
       min: 1,
       max: 100,
     }, {
