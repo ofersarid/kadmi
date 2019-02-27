@@ -118,6 +118,7 @@ class GeneralAssets extends PureComponent {
                 [field.key]: value,
               })}
               onValidation={isValid => this.onValidation(field.required ? isValid : true, field.key)}
+              transformer={field.transformer}
               className={styles.input}
             />
           ))}
