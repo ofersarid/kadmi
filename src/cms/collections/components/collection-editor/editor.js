@@ -41,11 +41,13 @@ class Editor extends PureComponent {
   }
 
   getEmptyEntity() {
-    const { editorFields } = this.props;
-    return editorFields.reduce((fields, item) => {
+    const { editorFields, list } = this.props;
+    return Object.assign({}, editorFields.reduce((fields, item) => {
       fields[item.key] = item.initialValue !== undefined ? item.initialValue : '';
       return fields;
-    }, {});
+    }, {}), {
+      displayOrder: list.length + 1
+    });
   }
 
   getOptionalFieldsAsList() {
@@ -87,12 +89,9 @@ class Editor extends PureComponent {
   }
 
   resolveValue(value, field) {
-    const { list } = this.props;
     switch (true) {
       case Boolean(value && value.toDate):
         return value.toDate();
-      case field.key === 'displayOrder':
-        return value === '' ? list.length + 1 : value;
       case field.type === 'switch':
         return Boolean(value);
       default:
