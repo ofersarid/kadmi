@@ -43,7 +43,11 @@ class Editor extends PureComponent {
   getEmptyEntity() {
     const { editorFields, list } = this.props;
     return Object.assign({}, editorFields.reduce((fields, item) => {
-      fields[item.key] = item.initialValue !== undefined ? item.initialValue : '';
+      fields[item.key] = item.initialValue !== undefined
+        ? item.initialValue
+        : item.type === 'date-time'
+          ? new Date()
+          : '';
       return fields;
     }, {}), {
       displayOrder: list.length + 1
