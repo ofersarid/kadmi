@@ -57,7 +57,7 @@ class Editor extends PureComponent {
   getOptionalFieldsAsList() {
     const { editorFields } = this.props;
     return editorFields.reduce((list, field) => {
-      if (!field.required) {
+      if (!field.required || field.disabled) {
         list.push(field.key);
       }
       return list;
