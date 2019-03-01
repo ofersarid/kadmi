@@ -111,7 +111,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  //transform: translate(-50%, -50%);
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -120,7 +119,6 @@
   align-items: center;
   justify-content: center;
   box-shadow: inset 10px -20px 100px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(white, 0.62);
-  //transition: .3s ease-out;
   will-change: box-shadow;
   opacity: 0;
   animation: rotate 1s forwards;
