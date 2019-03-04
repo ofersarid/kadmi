@@ -29,15 +29,23 @@ class Gallery extends PureComponent {
   componentDidUpdate(prevProps) {
     const { deviceOrientation } = this.props;
     if (this.gridRef && (deviceOrientation !== prevProps.deviceOrientation)) {
-      setTimeout(() => {
-        this.setState({ imagesReady: false });
-      }, 0);
+      if (!this.willUnmount) {
+        setTimeout(() => {
+          this.setState({ imagesReady: false });
+        }, 0);
+      }
     }
+  }
+
+  componentWillUnmount() {
+    this.willUnmount = true;
   }
 
   activate() {
     setTimeout(() => {
-      this.setState({ imagesReady: true });
+      if (!this.willUnmount) {
+        this.setState({ imagesReady: true });
+      }
     }, 1000);
     return null;
   }

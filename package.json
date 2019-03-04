@@ -53,7 +53,7 @@
     "uuid": "^3.3.2"
   },
   "name": "goblins-spawn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "license": "MIT",
   "devDependencies": {
