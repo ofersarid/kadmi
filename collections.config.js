@@ -45,6 +45,12 @@ export const GENERAL_ASSETS = [{
   type: 'image',
   transformer: imgFile => imageTransformer(imgFile, { maxSize: 1200 }),
   required: true,
+}, {
+  key: 'aboutMe',
+  label: 'About Me',
+  type: 'post',
+  min: 1,
+  required: true,
 }];
 
 export const COLLECTIONS = [

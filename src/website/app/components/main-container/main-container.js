@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
 import Device from '/src/cms/device';
 import styles from './styles.scss';
 import { websiteMainContainer } from '../../types';
@@ -26,4 +28,7 @@ WebsiteMainContainer.propTypes = websiteMainContainer;
 
 const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
 
-export default connect(mapStateToProps, mapDispatchToProps)(WebsiteMainContainer);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect(['settings']),
+)(WebsiteMainContainer);

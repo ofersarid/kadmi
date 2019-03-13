@@ -5,6 +5,7 @@ import Device from '/src/cms/device';
 import autoBind from 'auto-bind';
 import { Call } from 'styled-icons/material/Call';
 import { MoreVert } from 'styled-icons/material/MoreVert';
+import { Person } from 'styled-icons/material/Person';
 import { Button } from '/src/cms/elements';
 import { trackClick } from '/src/analytics';
 import { hashHistory } from 'react-router';
@@ -34,6 +35,19 @@ const DropMenu = ({ pathname, menuBtn }) => (
         </Button >
       </li >
     ))}
+    <li>
+      <Button
+        stretch
+        linkTo="/website/about"
+        textColor={pathname === '/website/about' ? '#cac664' : 'white'}
+        onClick={() => {
+          menuBtn.current.click();
+        }}
+      >
+        אודות
+        <Person />
+      </Button >
+    </li>
   </ul >
 );
 

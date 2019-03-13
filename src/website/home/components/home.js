@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import Device from '/src/cms/device/index';
-import { firestoreConnect } from 'react-redux-firebase';
 import cx from 'classnames';
 import { compose } from 'redux';
 import { selectors as collectionSelectors } from '/src/cms/collections';
@@ -54,5 +53,4 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps, {}),
-  firestoreConnect(['settings']),
 )(Home);

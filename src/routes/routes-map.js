@@ -4,6 +4,7 @@ import { MainContainer } from '/src/cms/app';
 import { Home } from '/src/website/home';
 import { GeneralAssets } from '/src/cms/collections';
 import LoginPage from '/src/cms/auth/components/login-page/login-page';
+import { AboutPage } from '/src/website/about';
 import { WebsiteMainContainer } from '/src/website/app';
 import ReduxRoutes from '/src/routes/components/redux-routes/redux-routes';
 import { COLLECTIONS, GENERAL_ASSETS } from '/collections.config';
@@ -35,6 +36,7 @@ export default (
       <Route path="indoors" component={() => <Gallery collection="indoors" />} />
       <Route path="outdoors" component={() => <Gallery collection="outdoors" />} />
       <Route path="renewals" component={() => <Gallery collection="renewals" />} />
+      <Route path="about" component={AboutPage} />
     </Route >
     <Redirect from="*" to="/website/home" />
   </Route >
