@@ -57,7 +57,7 @@ class ContactForm extends PureComponent {
 
   render() {
     const { name, email, message, isValid, phone } = this.state;
-    const { onSend, onSuccess, deviceType } = this.props;
+    const { onSend, onSuccess, deviceType, isMobile } = this.props;
     return (
       <div className={cx(styles.formContainer, styles[`formContainer-${deviceType}`])}>
         <UserInput
@@ -95,17 +95,19 @@ class ContactForm extends PureComponent {
           rtl
           className={styles[`singleLine-${deviceType}`]}
         />
-        <UserInput
-          placeholder="כמה מילים..."
-          onChange={value => this.onChange({
-            message: value,
-          })}
-          value={message}
-          type="multi-line"
-          optional
-          rtl
-          stretch
-        />
+        {!isMobile && (
+          <UserInput
+            placeholder="כמה מילים..."
+            onChange={value => this.onChange({
+              message: value,
+            })}
+            value={message}
+            type="multi-line"
+            optional
+            rtl
+            stretch
+          />
+        )}
         <Button
           stretch
           color="#cac664"
@@ -129,8 +131,9 @@ class ContactForm extends PureComponent {
 
 ContactForm.propTypes = contactForm;
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   deviceType: Device.selectors.deviceType(state),
+  isMobile: Device.selectors.isMobile(state),
   deviceOrientation: Device.selectors.deviceOrientation(state),
 });
 
