@@ -164,7 +164,7 @@ export const COLLECTIONS = [
       required: true,
     }],
   }, {
-    id: 'indoor',
+    id: 'indoors',
     name: 'Indoors',
     icon: <Home />,
     filters: ['title', 'description'],
