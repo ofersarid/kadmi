@@ -75,7 +75,7 @@ class NavBar extends PureComponent {
             className={cx(styles.btn, deviceType !== 'mobile' && styles.noClick)}
             justIcon
             onClick={() => {
-              document.location.href = 'tel:972509013034';
+              document.location.href = 'tel:0509013034';
               trackClick('user', 'click', 'call-button');
             }}
           >
