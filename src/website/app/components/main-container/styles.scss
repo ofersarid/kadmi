@@ -1,4 +1,5 @@
 @import '/src/website/dimentions';
+@import '/src/media-query-mixins';
 
 .mainContainer {
   height: 100%;
@@ -14,9 +15,13 @@
 .stage {
   min-height: 100%;
   padding-top: $nav-bar-height;
-  padding-bottom: $nav-bar-height;
+  padding-bottom: 20px;
   flex-shrink: 0;
   box-sizing: border-box;
+
+  @include media('>tablet') {
+    padding-bottom: $nav-bar-height;
+  }
 }
 
 $placeholderColor: #9f9b9b;

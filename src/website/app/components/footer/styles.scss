@@ -1,19 +1,25 @@
 @import '/src/website/dimentions';
+@import '/src/media-query-mixins';
 
 .footer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  z-index: 3;
   display: flex;
   align-items: center;
-  background: rgba(white, 0.95);
-  overflow: hidden;
   box-sizing: border-box;
-  transform: translateY(calc(100% - #{$nav-bar-height}));
   transition: .35s ease-out;
   flex-direction: column;
-  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
+  margin-top: 12px;
+
+  @include media('>tablet') {
+    margin-top: 0;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    transform: translateY(calc(100% - #{$nav-bar-height}));
+    background: rgba(white, 0.95);
+    overflow: hidden;
+  }
 }
 
 .footerTop {
@@ -26,17 +32,18 @@
 
 .btn {
   height: 100%;
-  
+
   :global {
     .inner {
-      //background: #f3f3f3;
       height: 100%;
     }
   }
 }
 
 .showContactForm {
-  transform: translateY(0);
+  @include media('>tablet') {
+    transform: translateY(0);
+  }
 }
 
 .mail {
