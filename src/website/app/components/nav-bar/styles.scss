@@ -1,5 +1,6 @@
 @import '/src/website/dimentions';
 @import '/src/cms/animations';
+@import '/src/media-query-mixins';
 
 .navBar {
   height: $nav-bar-height;
@@ -10,7 +11,7 @@
   display: flex;
   align-items: center;
   background: rgba(white, 0.95);
-  padding: 0 6px 0 15px;
+  padding: 0 6px 0 0;
   overflow: hidden;
   justify-content: space-between;
   box-sizing: border-box;
@@ -18,12 +19,16 @@
 }
 
 .phone {
-  margin-left: 10px !important;
-  margin-right: 0 !important;
+
 }
 
-.phone-mobile {
-  margin-left: 0 !important;
+.number {
+  display: none;
+  margin-right: 10px;
+
+  @include media('>phone') {
+    display: unset;
+  }
 }
 
 .number-mobile {
@@ -31,13 +36,18 @@
 }
 
 .btn {
-  margin-left: 5px;
-  
   :global {
     .inner {
-      background: #cac664;
-      color: white;
+      border-radius: 5px;
+      background: rgba(0,0,0,0.05);
+      border: 2px solid black;
+      box-sizing: border-box;
       text-shadow: -1px -1px rgba(0, 0, 0, 0.12);
+      padding: 5px 10px;
+
+      @include media('>phone') {
+        padding: 5px 15px;
+      }
     }
   }
 }
@@ -77,19 +87,19 @@
 .menu {
   margin: 0;
   padding: 5px 0 0 0;
-  
+
   :global {
     li {
       display: block;
     }
-    
+
     .inner {
       justify-content: flex-end;
       font-family: Arial;
       font-size: 18px;
       line-height: 18px;
     }
-    
+
     svg {
       margin: 0 0 0 10px;
     }
@@ -97,11 +107,13 @@
 }
 
 .more {
-  width: 24px;
-  
   :global {
     .inner {
-      padding: 10px 0;
+      padding: 10px 10px;
+    }
+
+    svg {
+      height: 36px;
     }
   }
 }

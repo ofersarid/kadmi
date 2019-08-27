@@ -2,6 +2,6 @@
 
 .layout {
   display: flex;
-  height: calc(100vh - #{$nav-bar-height});
+  height: calc(100% - #{$nav-bar-height});
   width: 100%;
 }

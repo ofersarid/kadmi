@@ -4,8 +4,7 @@ import cx from 'classnames';
 import Device from '/src/cms/device';
 import autoBind from 'auto-bind';
 import { Call } from 'styled-icons/material/Call';
-import { MoreVert } from 'styled-icons/material/MoreVert';
-import { Person } from 'styled-icons/material/Person';
+import { Menu } from 'styled-icons/boxicons-regular/Menu';
 import { Button } from '/src/cms/elements';
 import { trackClick } from '/src/analytics';
 import { hashHistory } from 'react-router';
@@ -31,11 +30,11 @@ const DropMenu = ({ pathname, menuBtn }) => (
           }}
         >
           {cat.label}
-          {cat.icon}
+          {/* {cat.icon} */}
         </Button >
       </li >
     ))}
-    <li>
+    <li >
       <Button
         stretch
         linkTo="/website/about"
@@ -45,9 +44,8 @@ const DropMenu = ({ pathname, menuBtn }) => (
         }}
       >
         אודות
-        <Person />
       </Button >
-    </li>
+    </li >
   </ul >
 );
 
@@ -79,8 +77,8 @@ class NavBar extends PureComponent {
               trackClick('user', 'click', 'call-button');
             }}
           >
-            <Call className={cx(styles.phone, styles[`phone-${deviceType}`])} />
-            <div className={cx(styles[`number-${deviceType}`])} >050-901-3034</div >
+            <Call className={cx(styles.phone)} />
+            <div className={cx(styles.number)} >050-901-3034</div >
           </Button >
           <Button
             justIcon
@@ -90,7 +88,7 @@ class NavBar extends PureComponent {
             interactive
             getRef={this.menuBtn}
           >
-            <MoreVert />
+            <Menu />
           </Button >
         </div >
       </div >
@@ -106,10 +104,10 @@ const mapStateToProps = state => ({
   deviceType: Device.selectors.deviceType(state),
   deviceOrientation: Device.selectors.deviceOrientation(state),
   generalAssets: collectionSelectors.settings(state).generalAssets,
-  pathname: Routes.selectors.pathname(state),
+  pathname: Routes.selectors.pathname(state)
 });
 
 export default compose(
   connect(mapStateToProps, {}),
-  firestoreConnect(['settings']),
+  firestoreConnect(['settings'])
 )(NavBar);
