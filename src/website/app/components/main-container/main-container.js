@@ -6,7 +6,7 @@ import Device from '/src/cms/device';
 import styles from './styles.scss';
 import { websiteMainContainer } from '../../types';
 import NavBar from '../nav-bar/nav-bar';
-import Footer from '../footer/footer';
+// import Footer from '../footer/footer';
 
 const WebsiteMainContainer = props => (
   <Fragment >
@@ -14,14 +14,14 @@ const WebsiteMainContainer = props => (
     <div className={styles.mainContainer} >
       <NavBar />
       <div className={styles.stage} >{props.children}</div >
-      <Footer />
+      {/* {props.isMobile && <Footer />} */}
     </div >
   </Fragment >
 );
 
 const mapStateToProps = state => ({
-  deviceType: Device.selectors.deviceType(state),
-  deviceOrientation: Device.selectors.deviceOrientation(state),
+  isMobile: Device.selectors.deviceType(state) === 'mobile',
+  deviceOrientation: Device.selectors.deviceOrientation(state)
 });
 
 WebsiteMainContainer.propTypes = websiteMainContainer;
@@ -30,5 +30,5 @@ const mapDispatchToProps = dispatch => ({}); // eslint-disable-line
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect(['settings']),
+  firestoreConnect(['settings'])
 )(WebsiteMainContainer);

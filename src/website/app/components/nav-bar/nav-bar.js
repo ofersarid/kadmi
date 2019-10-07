@@ -13,9 +13,9 @@ import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { selectors as collectionSelectors } from '/src/cms/collections';
 import { CATEGORIES } from '/src/website/constants';
+import { Whatsapp } from 'styled-icons/fa-brands/Whatsapp';
 import Routes from '/src/routes';
 import styles from './styles.scss';
-import logoText from './logoText.svg';
 
 const DropMenu = ({ pathname, menuBtn }) => (
   <ul className={styles.menu} >
@@ -64,7 +64,11 @@ class NavBar extends PureComponent {
           {generalAssets && (
             <Fragment >
               <img src={generalAssets.logo} className={styles.logoImg} />
-              <img src={logoText} className={cx(styles.logoText, styles[`logoText-${deviceType}`])} />
+              {deviceType === 'mobile' ? (
+                <h2>קדמי -<br />עבודות בעץ</h2>
+              ) : (
+                <h2 >קדמי - עבודות בעץ</h2 >
+              )}
             </Fragment >
           )}
         </Button >
@@ -79,6 +83,16 @@ class NavBar extends PureComponent {
           >
             <Call className={cx(styles.phone)} />
             <div className={cx(styles.number)} >050-901-3034</div >
+          </Button >
+          <Button
+            className={cx(styles.btn, styles.whastapp)}
+            justIcon
+            onClick={() => {
+              document.location.href = 'https://api.whatsapp.com/send?phone=972509013034';
+              trackClick('user', 'click', 'chat-button');
+            }}
+          >
+            <Whatsapp className={cx(styles.phone)} />
           </Button >
           <Button
             justIcon

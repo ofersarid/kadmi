@@ -3,6 +3,7 @@ import { deviceTypes } from '/src/cms/device/types';
 
 export const websiteMainContainer = {
   children: PropTypes.any,
+  isMobile: PropTypes.bool,
 };
 
 export const navBar = {

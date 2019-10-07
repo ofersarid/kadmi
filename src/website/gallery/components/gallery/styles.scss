@@ -5,7 +5,6 @@
   padding: 15px;
 
   @include media('>tablet') {
-    height: calc(100% - 150px);
     overflow: hidden;
     overflow-y: visible;
   }

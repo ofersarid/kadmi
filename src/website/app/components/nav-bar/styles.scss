@@ -36,17 +36,26 @@
 }
 
 .btn {
+  margin-right: 10px;
   :global {
     .inner {
-      border-radius: 5px;
-      background: rgba(0,0,0,0.05);
-      border: 2px solid black;
+      background: #ff9e36;
+      color: white;
+      border: 2px solid #dc5f32;
       box-sizing: border-box;
-      text-shadow: -1px -1px rgba(0, 0, 0, 0.12);
       padding: 5px 10px;
 
       @include media('>phone') {
         padding: 5px 15px;
+      }
+    }
+  }
+
+  &.whastapp {
+    :global {
+      .inner {
+        background: #25d366;
+        border-color: #4fac4f;
       }
     }
   }
@@ -56,6 +65,14 @@
   display: flex;
   align-items: center;
   height: 100%;
+
+  h2 {
+    font-size: 1.2em;
+
+    @include media('>phone') {
+      font-size: 1.5em;
+    }
+  }
 }
 
 .logoText {
