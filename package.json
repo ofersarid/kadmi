@@ -12,7 +12,7 @@
     "highlight": "^0.2.4",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "moment": "^2.23.0",
     "node-waves": "^0.7.6",
     "parallax-js": "^3.1.0",
