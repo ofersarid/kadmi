@@ -8,15 +8,26 @@
   flex-direction: column;
   direction: rtl;
   background: #f3f3f3;
-  overflow: auto;
   font-family: Arial;
+  overflow: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .stage {
   height: 100%;
+  width: 100vw;
   padding-top: $nav-bar-height;
   flex-shrink: 0;
   box-sizing: border-box;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  verflow-x: hidden;
 }
 
 $placeholderColor: #9f9b9b;

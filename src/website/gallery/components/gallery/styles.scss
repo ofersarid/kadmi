@@ -5,8 +5,9 @@
   padding: 15px;
 
   @include media('>tablet') {
-    overflow: hidden;
-    overflow-y: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

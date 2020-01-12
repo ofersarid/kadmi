@@ -44,7 +44,7 @@ ReactDOM.render(
 Waves.attach('.ripple');
 Waves.init();
 
-document.addEventListener('touchmove',
-  function (e) {
-    e.preventDefault();
-  }, { passive: false });
+// document.addEventListener('touchmove',
+//   function (e) {
+//     e.preventDefault();
+//   }, { passive: false });

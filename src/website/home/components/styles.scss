@@ -1,5 +1,6 @@
 @import '/src/website/dimentions';
 @import '/src/cms/animations';
+@import '/src/media-query-mixins';
 
 @keyframes rotate {
   0% {
@@ -16,6 +17,10 @@
 .home {
   min-height: calc(100% - #{$nav-bar-height});
   position: relative;
+
+  @include orientation('landscape') {
+    height: 100%;
+  }
 }
 
 .gridContainer {
@@ -23,14 +28,18 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: 'category-1 category-2 category-3' 'category-1 category-2 category-4' 'category-5 category-2 category-4';
-  height: 100%;
+  height: calc(100% - 60px);
   position: relative;
   grid-gap: 15px;
   box-sizing: border-box;
-  padding: 15px;
+  padding: 15px 15px 0 15px;
 
   & * {
     position: relative;
+  }
+
+  @include orientation('landscape') {
+    height: 100%;
   }
 }
 
