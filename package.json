@@ -8,7 +8,7 @@
     "emailjs-com": "^2.3.2",
     "firebase": "^5.8.0",
     "fs": "^0.0.1-security",
-    "grunt": "~0.4.0",
+    "grunt": "~1.5.2",
     "highlight": "^0.2.4",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
